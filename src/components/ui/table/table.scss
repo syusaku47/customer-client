@@ -1,0 +1,169 @@
+@import "../../../_setting.scss";
+@import "../../../mixin.scss";
+
+.table_wrapper {
+  @include border-default();
+  table {
+      tr:last-child td {
+          border-bottom: none !important;
+      }
+  }
+}
+
+.table_responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  @include border-default();
+}
+.table_responsive table {
+  table-layout: fixed;
+  min-width: 100%;
+  border: none;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  @include border-default();
+  border: none;
+  font-size: 12px;
+  tr {
+    *:first-child {
+      border-left: none;
+    }
+    *:last-child {
+      border-right: none;
+     }
+    &:first-child {
+      th {
+        border-top: none;
+      }
+    }
+    &:last-child {
+      td {
+        //border-bottom: none;
+      }
+    }
+  }
+}
+
+.table_sticky{
+  //display: block;
+  //border-collapse: separate !important;
+  //border-spacing:0;
+  thead {
+    th {
+      border: 1px solid #ccc;
+      /* 縦スクロール時に固定する */
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      /* tbody内のセルより手前に表示する */
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 2px solid $base-color;
+        z-index: 10;
+      }
+      &:hover {
+        &::before {
+          border-top: 2px solid $base_color_opacity_75;
+        }
+      }
+    } 
+  }
+}
+
+table {
+  font-size: 14px;
+  background-color: #FFF;
+  border-collapse: collapse;
+  th,
+  td {
+    white-space: nowrap;
+    padding: 5px 10px;
+    @include border-default();
+    img.icon {
+      height: 20px; 
+    }
+  }
+  thead {
+    th {
+      background-color: $base-color;
+      color: #fff;
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(even) {
+        td {
+          background-color: $table_td_even_color !important;
+        }
+      }
+      &:nth-child(odd) {
+        td {
+          background-color: $table_td_odd_color !important;
+        }
+      }
+      td {
+        button {
+          min-height: 30px !important;
+          padding: 0 10px !important;
+        }
+      }
+
+    }
+  }
+}
+
+table.table_selectable {
+  tbody {
+    > tr {
+      &:hover {
+        td {
+          background-color: $table_selectecd_color !important;
+        }
+      }
+      &.selected {
+        td {
+          background-color: $table_selectecd_color !important;
+        }
+      }
+      &.invalid {
+          td {
+              background-color: $table_invalid_color !important;
+          }
+      }
+      td {
+          cursor: pointer;
+          &::-moz-selection {
+            background-color: inherit;
+          }
+          &::selection {
+            background-color: inherit;
+          }
+      }
+    }
+  }
+}
+table.table_sortable {
+  thead {
+    th {
+      cursor: pointer;
+      &:hover {
+        /*opacity: 0.75;*/
+        background-color: $base_color_opacity_75;
+      }
+      span.sort_arrow {
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

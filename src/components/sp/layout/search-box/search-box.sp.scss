@@ -1,0 +1,45 @@
+@import "../../../../mixin.scss";
+@import "../../../../App.scss";
+
+.search_box_body {
+  // 汎用
+  &_inner {
+    .category_wrap {
+      padding: 1.5rem;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid #cccccc;
+      }
+
+      .item_wrap {
+        width: 100%;
+        > .full_width {
+          .ui.selection.dropdown,
+          > textarea {
+            width: 100%;
+          }
+        }
+        &:not(:first-of-type) {
+          margin-top: 15px;
+        }
+        .TopLabelInputField_sp {
+          > div {
+            width: 100%;
+          }
+        }
+        .item_body {
+          margin-top: 7px;
+
+          // checkbox
+          &.item_checkbox {
+          }
+          textarea {
+            display: block;
+            width: 100%;
+            resize: none;
+          }
+        } //.item_body
+      } //.item_wrap
+    } //.category_wrap
+  }
+} //.searchBox_body

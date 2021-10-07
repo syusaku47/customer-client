@@ -1,0 +1,20 @@
+@import "../../../mixin";
+
+.angle_icon {
+  @include flex_box();
+  @include flex_content_center();
+  @include flex_align_center();
+  height: 1em;
+  width: 1em;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0.6em;
+    height: 0.6em;
+    border-left: solid 1px currentColor;
+    border-top: solid 1px currentColor;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    }
+}

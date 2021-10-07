@@ -1,0 +1,14 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.project_card.sp {
+  .card_base_row {
+    &__col_left {
+      .card_info_item {
+        &__head {
+          min-width: 4.5em !important;
+        }
+      }
+    }
+  } // card_base_row
+}

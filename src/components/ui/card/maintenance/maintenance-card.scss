@@ -1,0 +1,14 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.maintenance_card {
+  .card_base_row {
+    &__col_right {
+      > div {
+        @include mq_min() {
+          width: 6em !important;
+        }
+      }
+    }
+  }
+}

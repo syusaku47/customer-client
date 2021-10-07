@@ -1,0 +1,14 @@
+.icon_button {
+  min-height: 42px;
+  min-width: 42px;
+  padding: 0 !important;
+  &__icon {
+    font-size: 1.5em;
+  }
+}
+
+body.sp {
+  .icon_button {
+    // min-width: 0 !important;
+  }
+}

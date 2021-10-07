@@ -1,0 +1,21 @@
+@import "../../../../mixin.scss";
+
+.LeftIconButton {
+  display: flex !important;
+  @include flex_align_center();
+  @include flex_content_center();
+  span {
+    margin-left: 0.25em;
+  }
+}
+body.pc {
+  .LeftIconButton {
+	padding: 0 10px !important;
+	min-height: 30px !important;
+  	min-width: 100px;
+    &__icon {
+      padding-right: 10px;
+      font-size: 1.2em;
+    }
+  }
+}

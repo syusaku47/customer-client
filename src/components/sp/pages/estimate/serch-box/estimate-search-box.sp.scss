@@ -1,0 +1,55 @@
+@import "../../../../../mixin.scss";
+@import "../../../../../App.scss";
+
+.search_box_customer_sp {
+  .category_wrap {
+    .item_wrap {
+      /**
+       * 個別対応
+       */
+      .item_body {
+
+        // 顧客ランク
+        &.item_customerRank {
+          @include flex_box();
+          @include flex_align_center();
+          > div {
+            &:first-of-type {
+              flex: 3;
+            }
+            &:not(:first-of-type) {
+              margin-left: 10px;
+              flex: 2;
+            }
+            min-width: inherit;
+          }
+        } //&.item_customerRank
+
+        // エリア
+        &.item_area,
+        &.item_madori {
+          > div {
+            width: 50% !important;
+          }
+        }
+
+        //完工時期、最終完工時期、総工事金額
+        &.item_period {
+          .item_period__inner {
+            > div {
+              &:first-of-type {
+                margin-right: 0.5rem;
+              }
+            }
+          }
+        } //&.item_Period
+
+      } //.item_body
+      &.tags_form {
+        &:not(:first-of-type) {
+          margin: 1em 0;
+        }
+      }
+    } //.item_wrap
+  } //.category_wrap
+} // searchBoxCustomerSP

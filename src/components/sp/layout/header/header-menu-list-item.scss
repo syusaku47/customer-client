@@ -1,0 +1,18 @@
+@import '../../../../mixin';
+@import '../../../../setting';
+
+.header_menu_list_item {
+  @include flex_box();
+  @include flex_space_between();
+  @include flex_align_center();
+  background-color: $menu_background_gray;
+  > span {
+    padding: 1em;
+
+  }
+  > i {
+    font-size: 1.5em;
+    margin: 0 0.5em;
+    color: $base_color;
+  }
+}

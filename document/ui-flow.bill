@@ -1,0 +1,40 @@
+[請求新規登録/編集]
+案件条件
+└ 未完工・完工
+金額 ↔ 税込金額 自動入力
+ ----------
+Input　現場名称
+　　　 Enabled 　 : False
+Input　案件名
+　　　 Validation : 60文字まで
+　　　 Enabled 　 : False
+Input　金額 <初期値0>
+Input　入金方法
+Input　*税込金額 <初期値0>
+　　　 Validation : 整数のみ
+Text　 備考
+Button 登録
+Button 閉じる
+--
+Click:登録(Success)
+==>請求新規登録/編集(Success)
+Click:登録(Failure)
+==>請求新規登録/編集(Failure)
+
+[請求新規登録/編集(Success)]
+メッセージダイアログ表示
+└ 登録しますか？
+
+[請求新規登録/編集(Failure)]
+未・誤入力:未入力／入力不備項目があります
+
+[請求リスト]
+印刷済み
+請求項目
+請求日
+入金予定日
+請求金額
+入金方法
+--
+DbClick:Row
+==>請求新規登録/編集

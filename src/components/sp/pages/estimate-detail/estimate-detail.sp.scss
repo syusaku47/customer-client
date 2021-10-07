@@ -1,0 +1,237 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.estimate_detail_sp {
+  .detail_wrap {
+    @include flex_box();
+    @include flex_direction_column();
+  }
+
+  &__header {
+    &__inner {
+      @include flex_box();
+      @include flex_align_center();
+      padding: 1rem;
+      width: 100%;
+      background-color: $header_background_gray;
+      font-weight: bold;
+    }
+
+    &:nth-of-type(2) {
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      .estimate_detail_sp__header__inner {
+        padding: 0.5rem 1rem;
+        &::after {
+          // @include pseudo_hor_border(1px, calc(100% - 1rem));
+          // left: 0.5rem;
+          // bottom: 0;
+        }
+        > div {
+          &:first-of-type {
+            width: 3em;
+          }
+          &:nth-of-type(2) {
+            @include flex_box();
+            @include flex_align_center();
+            font-size: 0.8rem;
+            color: $base_color;
+          }
+          &:nth-of-type(3) {
+            @include flex_box();
+            margin-left: auto;
+            .btn {
+              + .btn {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    } // estimate_detail_sp__header__inner
+  } // estimate_detail_sp__header
+
+  &__container {
+    @include flex_box();
+    @include flex_direction_column();
+    @include scroll_display_none();
+    flex: 1;
+    overflow: auto;
+    &__info {
+      &__top,
+      &__bottom {
+        .row {
+          @include flex_box();
+          @include flex_align_start();
+          &__col1 {
+            width: 6em;
+          }
+          &__col2 {
+            width: 1em;
+          }
+          &__col3 {
+            flex: 1;
+            word-break: break-all;
+          }
+        }
+      }
+
+      &__top {
+        @include flex_box();
+        position: relative;
+        padding: 1rem 1rem 1rem 1.5rem;
+        &::after {
+          @include pseudo_hor_border();
+          bottom: 0;
+          transform: scale(0.94);
+        }
+
+        .col1 {
+          flex: 1;
+          .row {
+            &:first-of-type {
+              color: $emphasis_color_blue;
+            }
+            .important {
+              font-size: 1.5rem !important;
+            }
+          }
+        }
+      }
+
+      &__bottom {
+        padding: 1rem 1.5rem;
+        .row {
+          &:nth-of-type(3) {
+            color: $alert_color;
+          }
+        }
+      }
+    }
+
+    &__price_detail {
+
+      &__label {
+        @include flex_box();
+        @include flex_align_center();
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        // position: sticky;
+        // top: 0;
+        // left: 0;
+        // z-index: 2;
+  
+        span {
+          + span {
+            flex: 1;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      &__body {
+        position: relative;
+        padding: 0 1rem 0 1.5rem;
+        opacity: 0;
+        height: 0;
+        // z-index: inherit;
+
+        .col {
+          display: none;
+          .row {
+            @include flex_box();
+            @include flex_align_start();
+            &__col1 {
+              width: 6em;
+            }
+            &__col2 {
+              width: 1em;
+            }
+            &__col3 {
+              flex: 1;
+              word-break: break-all;
+            }
+          }
+        }
+
+        .col2 {
+          margin-left: 5px;
+        }
+
+        &.opened {
+          padding: 0.5rem 1rem 1rem 1.5rem;
+          transition: opacity 0.3s;
+          opacity: 1;
+          // transform: scaleY(1);
+          // transform-origin: 0 0;
+          height: auto;
+          background-color: #fff;
+          .col {
+            display: block;
+          }
+        }
+      }
+    } // estimate_detail_sp__container__price_detail
+
+    &__remarks {
+      padding: 1.5rem;
+      position: relative;
+      &::after {
+        @include pseudo_hor_border();
+        top: 0;
+        transform: scale(0.94);
+      }
+
+      &__label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+    }
+  } // estimate_detail_sp__container
+
+  &__footer_secondary {
+    &__wrap {
+      background-color: #e0e1e2;
+      padding: 0.7rem 1rem;
+      .row {
+        text-align: right;
+        margin-top: 5px;
+        @include flex_box();
+        @include flex_content_end();
+        &:first-child {
+          margin-top: 0;
+        }
+        &__col1 {
+          width: 4em;
+        }
+        &__col2 {
+          min-width: 7em;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    > div {
+      flex: 1;
+      &:first-of-type {
+        .btn {
+          width: 100%;
+        }
+      }
+      &:last-of-type {
+        @include flex_box();
+        @include flex_content_end();
+        .btn {
+          width: 100%;
+          margin-left: 10px;
+          &.email {
+            // width: 3em;
+          }
+        }
+      }
+    }
+  }
+}

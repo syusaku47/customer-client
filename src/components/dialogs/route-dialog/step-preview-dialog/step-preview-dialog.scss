@@ -1,0 +1,43 @@
+@import '/src/mixin';
+
+.step_preview_dialog {
+  &.sp, &.pc {
+
+    .step_preview_dialog__start, 
+    .step_preview_dialog__goal {
+      .important {
+        padding: 1rem;
+      }
+    }
+
+    .step_preview_dialog__via {
+      padding-right: 1rem;
+      .step_card {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &.sp {
+    .route_dialog__footer {
+      padding: 1rem;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  &.pc {
+    @include flex_box();
+    .route_dialog__body {
+      height: 100%;
+      overflow-y: scroll !important;
+    }
+
+    .route_dialog__footer {
+      .btn {
+        width: 6em;
+      }
+    }
+  }
+}

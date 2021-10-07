@@ -1,0 +1,51 @@
+@import "../../../../../_setting.scss";
+
+body.pc {
+    /*dialog*/
+    .ui.modal {
+        max-width: 90%;
+        max-height: 90%;
+        width: auto;
+        //width: 90%;
+        //height: 90%;
+    }
+
+    .segment_wrap {
+        display: flex;
+        width: 100%;
+        max-height: 300px;
+        .ui.segment {
+            height: 100%;
+            overflow: auto;
+            border:none;
+            border-radius: 0;
+            box-shadow: none;
+            flex-grow: 1;
+            margin: 0;
+            margin-right: 10px;
+            padding: 0;
+            table {
+                th {
+                    background-color: #FFF;
+                    color: $base-color;
+                    border-bottom: 2px solid $base-color !important;
+                    font-weight: bold;
+                }
+                th,
+                td {
+                    padding: 5px;
+                    line-height: 20px;
+                }
+            }
+        }
+        display: flex;
+        .btn_box {
+            display: flex;
+            flex-direction: column;
+            button + button {
+                margin-top: 5px;
+            }
+        }
+
+    }
+}

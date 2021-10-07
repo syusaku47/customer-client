@@ -1,0 +1,51 @@
+@import "../../../../mixin.scss";
+
+.leftImgButton {
+  display: flex !important;
+  @include flex_align_center();
+  &__img_wrapper {
+    min-width: 30px;
+    width: 30px;
+    img {
+      width: 20px;
+    }
+  }
+  &__label {
+    flex: 1;
+    /* 文字の位置調整は各呼出し箇所のscssファイル等で。 */
+  }
+}
+
+/* アイコン付き「すべて」ボタン用スタイル */
+.btn-filter-all {
+  padding: 0;
+  > .img_wrapper {
+    width: 54px;
+  }
+  img {
+    width: 20px;
+    padding-right: 1px;
+  }
+}
+/*
+body.pc {
+  .leftImgButton {
+    &__img_wrapper {
+      width: auto;
+      min-width: inherit;
+
+      &.on {
+        display: none;
+      }
+    }
+    &:hover {    
+      .leftImgButton__img_wrapper {
+        display: none;
+        &.on {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+*/

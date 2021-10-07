@@ -1,0 +1,39 @@
+.LeftLabelInputField_pc {
+  &__label {
+    //margin-left: 5px;
+  }
+  &__field {
+    //@at-root: 0;
+
+  }
+  &.small {
+    input {
+      width :100px;
+    }
+  }
+  &.medium {
+    input {
+      width :300px;
+    }
+  }
+  &.large {
+    flex-grow: 1;
+    .LeftLabelInputField_pc__field {
+      flex-grow: 1;
+      input {
+        width :100%;
+        max-width: 500px;
+      }
+    }
+ }
+}
+
+.LeftLabelInputField_sp {
+  &__label {
+    display: block;
+  }
+  &__field {
+    display: block;
+    margin-top: 7px;
+  }
+}

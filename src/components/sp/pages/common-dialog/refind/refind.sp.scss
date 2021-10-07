@@ -1,0 +1,17 @@
+@import "../../../../../App";
+@import "../../../../../mixin";
+
+body.sp {
+  //絞り込み
+  .refind_body {
+    .category_wrap {
+      padding: 1rem;
+    }
+    // overflow-y: auto !important;
+  }
+  .refind_footer {
+    .btn {
+      width: calc(100% / 2);
+    }
+  }
+}

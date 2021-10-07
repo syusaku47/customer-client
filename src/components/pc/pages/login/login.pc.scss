@@ -1,0 +1,63 @@
+@import "../../../../_setting.scss";
+.loginPC {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    &__logo {//仮
+        /*background-color: #EEEEEE;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        font-size: 40px;
+        width: 400px;
+        color: $base-color;
+        margin-bottom: 20px;
+    }
+    &__title {//仮
+        text-align: center;
+        font-size: 1.8rem;
+        color: $base-color;
+        margin-bottom: 30px;
+    }
+    &__body {
+        &__inner {
+            text-align: center;
+            margin: auto;
+            &__input-field {
+                /*text-align: left;*/
+                input {
+                    height: 50px !important;
+                    &:first-of-type{
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+        .text_box {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .RightLabelCheckbox {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            .checkbox {
+                flex-grow: 1;
+            }
+        }
+        .link_box {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        button {
+            width: 100% !important;
+        }
+    }
+    &__dialog {
+        text-align: center;
+        padding: 30px;
+    }
+}

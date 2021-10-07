@@ -1,0 +1,15 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.estimate_card {
+  .card_info_item {
+    &__head {
+      min-width: 6em;
+    }
+    &__text {
+      &.important {
+        font-size: 1.5rem !important;
+      }
+    }
+  }
+}

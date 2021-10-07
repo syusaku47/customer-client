@@ -1,0 +1,64 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+@import "../../../../setting";
+
+.family_info_card {
+  @include flex_box();
+  @include flex_direction_column();
+  width: 100%;
+  padding: 1rem;
+
+  &__row {
+    @include flex_box();
+
+    &:not(:first-of-type) {
+      margin-top: 5px;
+    }
+  }
+
+  &.active {
+    background-color: $selectecd_color !important;
+  }
+
+  .card_info_item {
+    &.item_tel {
+      -webkit-align-items: center !important;
+      -ms-flex-align: center !important;
+      align-items: center !important;
+      .icon_button {
+        // min-width: 2rem;
+        // min-height: 2rem;
+        // font-size: 0.8rem;
+      }
+    }
+
+    &__head {
+      min-width: 2.5em;
+    }
+  }
+
+  .row1 {
+    &__col1 {
+    }
+    &__col2 {
+      margin-left: 5px;
+      &.card_info_item {
+        width: auto;
+        min-width: 6em;
+
+        .card_info_item__text {
+          text-align: center !important;
+        }
+      }
+    }
+  } // row1
+  
+  .row_birth {
+    &__col1 {
+      width: 1.5rem;
+    }
+    &__col2 {
+      flex: 1;
+    }
+  } // row_birth
+}

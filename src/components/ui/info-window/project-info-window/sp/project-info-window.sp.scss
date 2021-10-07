@@ -1,0 +1,42 @@
+@import "../../../../../mixin.scss";
+@import "../../../../../App.scss";
+
+.project_info_window_sp {
+  .info_window {
+    &_info {
+      &.detail {
+        .row3 {
+        }
+      }
+
+      .row1 {
+        &_col1 {
+          @include flex_box();
+          @include flex_direction_column();
+          @include flex_content_around();
+          .important {
+            font-size: 1rem !important;
+          }
+        }
+      }
+
+      &.simple {
+        .row3 {
+          > div {
+            @include flex_box();
+            &:first-of-type {
+              min-width: 11em;
+            }
+            &:last-of-type {
+              flex: 1;
+              @include l_solid_r_flex(6.1em);
+            }
+          }
+        }
+      }
+    }
+
+    &_footer {
+    }
+  }
+} // project_info_window_sp

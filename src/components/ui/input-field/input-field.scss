@@ -1,0 +1,33 @@
+
+body.pc{
+    .base_input {
+        &.size_datepicker {
+            input {
+                width: 126px;
+            }
+        }
+        &.small {
+            input {
+                width: 100px;
+            }
+        }
+        &.medium {
+            input {
+                width: 300px;
+            }
+        }
+        &.large {
+            flex-grow: 1;
+            width: 100%;
+            input {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+        &.auto {
+            input {
+                width: auto;
+            }
+        }
+    } 
+}

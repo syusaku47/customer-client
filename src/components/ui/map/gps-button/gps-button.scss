@@ -1,0 +1,44 @@
+.icon_cover_gps {
+  position: absolute;
+  right: 10px;
+  padding: 0px;
+  margin: 0;
+  .btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 2px !important;
+    box-shadow: gray 0px 1px 4px -1px !important;
+    &.white {
+      background-color: #fff !important;
+      color: gray !important;
+      border: none !important;
+      box-shadow: gray 0px 1px 4px -1px !important;
+      &:hover {
+        background-color: #fff !important;
+        color: gray !important;
+        border: none !important;
+        box-shadow: gray 0px 1px 4px -1px !important;
+      }
+    }
+    &.primary {
+      background-color: #fff !important;
+      color: #1451a1 !important;
+      border: none !important;
+      box-shadow: gray 0px 1px 4px -1px !important;
+      &:hover {
+        background-color: #fff !important;
+        color: #1451a1 !important;
+        border: none !important;
+        box-shadow: gray 0px 1px 4px -1px !important;
+      }
+    }
+  }
+
+  &.pc {
+    top: 300px;
+  }
+
+  &.sp {
+    bottom: 40px;
+  }
+}

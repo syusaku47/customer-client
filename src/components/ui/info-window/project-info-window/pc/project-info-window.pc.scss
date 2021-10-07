@@ -1,0 +1,85 @@
+@import "../../../../../mixin.scss";
+@import "../../../../../App.scss";
+body.pc {
+.ProjectInfoWindow {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 20;
+  &__arrow-btn {
+    background-color: $base_color;
+    color: $font-white;
+    text-align: center;
+  }
+
+  &__info {
+    background-color: #FFF;
+    padding: 9px 0;
+    &__row {
+      @include flex_box();
+      padding: 9px 0 9px 9px;
+      &.row1 {
+        > .project-name {
+          flex: 1;
+          word-break: break-all;
+        }
+        > .col {
+          width: 128px;
+          @include flex_box();
+          @include flex_content_around();
+          @include flex_align_center();
+          margin-left: auto;
+          > .project-rank,
+          .project-type {
+            width: 52px;
+            text-align: center;
+            color: $font-white;
+            background-color: $bg_dark;
+          }
+        }
+      } // row1
+      &.row2 {
+        > .project-address {
+          word-break: break-all;
+        }
+      }
+      &.row3 {
+        > .project-tel {
+          width: 170px;
+        }
+        > .project-salesStaff {
+          flex: 1;
+          word-break: break-all;
+        }
+      } // row3
+    } // ProjectInfoWindow__info
+  }
+
+  &__footer {
+    height: 52px;
+    background-color: #FFF;
+    border-top: solid 1px $base_color;
+    @include flex_box();
+    @include flex_content_around();
+    @include flex_align_center();
+    .button {
+      width: 90px !important;
+      height: 34px !important;
+      padding: 0;
+      background-color: $base_color_thin !important;
+      border: none !important;
+      box-shadow: 0 0 2px;
+      &:hover {
+        background-color: $hover-color !important;
+        box-shadow: 0 0 2px;
+      }
+      .fa-mobile-alt {
+        font-size: 28px;
+      }
+      .fa-line {
+        font-size: 31px;
+      }
+    }
+  } // ProjectInfoWindow__info
+} // ProjectInfoWindow
+}

@@ -1,0 +1,19 @@
+@import "../../../../../App.scss";
+@import "../../../../../mixin.scss";
+
+.horizontalCalendarHeader {
+  @include flex_box();
+  font-size: 14px;
+  > .pre_year_btn_wrap,
+  > .pre_month_btn_wrap,
+  > .next_month_btn_wrap,
+  > .next_year_btn_wrap {
+    flex: 1;
+    color: $font-dark;
+  }
+  > .date {
+    @include flex_box();
+    @include flex_content_center();
+    flex: 4;
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../../../../../mixin';
+
+.estimate_detail_list_sp {
+  padding: 0 0.5rem;
+
+  .estimate_detail_card_sp {
+    &:not(.last_type) {
+      position: relative;
+      &::after {
+        @include pseudo_hor_border();
+        bottom: 0;
+      }
+    }
+  }
+}

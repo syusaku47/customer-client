@@ -1,0 +1,238 @@
+[案件(マップ/リスト)]
+案件検索
+案件リスト
+└ Card
+└ Button すべて
+└ Button 未契約
+└ Button 工事中
+└ Button 完工
+└ Button 案件新規登録
+GoogleMap
+└ InfoWindow
+Button 案件新規登録
+Button CSV出力
+Button リスト表示
+Button 戻る
+--
+案件検索
+==>案件検索
+Card
+==>Card-案件
+InfoWindow
+==>InfoWindow-案件
+Click:案件新規登録
+==>案件新規登録/編集
+
+
+
+
+
+[Card-案件]
+顧客名
+案件名
+顧客郵便番号
+現場住所
+現場電話番号
+工事状況
+案件(見込)ランク
+住所画像
+案件担当者
+
+[InfoWindow-案件]
+案件名
+顧客名
+顧客郵便番号
+Button ルート検索
+現場住所
+現場電話番号
+案件担当者
+工事状況
+案件(見込)ランク
+住所画像
+Button 案件詳細
+--
+Click:案件詳細
+==>案件詳細
+
+[案件(リスト)]
+案件検索
+ページャ
+リスト
+項目
+└ 受注された案件
+└ 案件作成から1週間以上経過
+└ 案件ID
+└ 現場名称
+└ 顧客ランク
+└ 見込みランク
+└ 案件名
+└ 現場電話番号
+└ 現場住所
+└ 着工予定日
+└ 完工予定日
+└ 着工日
+└ 完工日
+└ 契約番号
+└ 発生源
+└ 備考
+└ 担当名
+└ 契約日
+Button 案件新規登録
+Button CSV出力
+Button リスト表示
+Button 戻る
+--
+Click:Row(Active)
+==>案件(リスト)
+DbClick:Row(Active)
+=={編集}=>案件新規登録/編集
+Click:案件新規登録
+=={新規}=>案件新規登録/編集
+
+
+
+[案件検索]
+Selectには「全て」を追加
+ ----------
+Select 営業担当(店舗) <初期表示ログイン者の店舗>
+Select 営業担当(担当者) <初期表示ログイン者>
+Input　案件名
+Input　現場名称
+Input　現場電話番号
+Input　顧客名
+Check　工事状況 
+　　　 <Default Check: 案件化、見積中、工事中、完工、未入金>
+Select 顧客都道府県
+Input　現場住所
+Select 顧客ランク
+Select 顧客ランクフィルター
+Check　工事部位
+Button 検索
+
+
+[案件詳細]
+案件編集
+リスト
+└ 見積情報
+　 Button 新規見積作成
+　 Button 絞り込み
+└ 請求書
+　 Button 新規請求書作成
+　　　 Enabled 　 : 未完工、完工のみ
+　 Button 絞り込み
+└ 対応履歴
+　 Button 新規対応履歴作成
+　 Button 絞り込み
+└ ファイル
+　 Button 新規ファイル作成
+　 Button 絞り込み
+└ メンテナンス
+　 Button 新規メンテナンス作成
+　　　　　Enabled 　 : 契約日
+
+　 Button 絞り込み
+--
+案件編集
+=={編集}=>案件新規登録/編集
+Click:新規見積作成
+=={案件データ}=>見積新規登録/編集
+Click:新規請求作成
+=={案件データ}=>請求新規登録/編集
+Click:新規ファイル作成
+=={案件データ}=>対応履歴新規登録/編集
+Click:新規ファイル作成
+=={案件データ}=>ファイル新規登録/編集
+Click:新規メンテナンス作成
+=={案件データ}=>メンテナンス新規登録/編集
+
+
+[案件新規登録/編集]
+新規:顧客検索立ち上げ
+ ----------
+Input　*顧客ID
+　　　 Enabled 　 : False
+　　　 Validation : 60文字まで
+Input　顧客名
+　　　 Enabled 　 : False
+Button 顧客検索
+Input　顧客住所
+　　　 Enabled 　 : False
+Input　*案件名(工事)
+　　　 Validation : 60文字まで
+Select 案件ランク
+Select 営業担当(店舗) <初期表示ログイン者の店舗>
+Select 営業担当(担当者) <初期表示ログイン者>
+Select 発生源
+Input　*現場名称 <初期表示「顧客名様」>
+　　　 Validation : 60文字まで
+Input　*郵便番号 <初期表示顧客情報>
+　　　 Validation : 半角数字のみ/maxLen:3,4
+Button 住所入力
+Button 地図から入力
+Input　*都道府県 <初期表示顧客情報>
+Input　*市区町村 <初期表示顧客情報>
+　　　 Validation : 255文字まで
+Input　*地名・番地 <初期表示顧客情報>
+　　　 Validation : 255文字まで
+Input　建物名 <初期表示顧客情報>
+　　　 Validation : 255文字まで
+Input　現場電話 <初期表示顧客情報>
+Input　現場FAX <初期表示顧客情報>
+Check　工事部位
+Button 登録
+復帰処理
+└ 案件一覧取得
+ ----------
+編集
+Input　見込金額 <受注後か完了日入力後自動入力>
+　　　 Enabled 　 : False
+Input　契約番号 <受注後自動入力>
+　　　 Enabled 　 : False
+Input　契約日 <受注後自動入力>
+　　　 Enabled 　 : False
+Input　受注工期(最小値) <受注後自動入力>
+　　　 Enabled 　 : False
+Input　受注工期(最大値) <受注後自動入力>
+　　　 Enabled 　 : False
+Input　着工予定日 <受注後自動入力>
+　　　 Enabled 　 : False
+Input　完工予定日 <受注後自動入力>
+　　　 Enabled 　 : False
+Date　 着工日 <受注後自動入力>
+　　　 Enabled 　 : 契約日
+Date　 完工日 <受注後自動入力>
+　　　 Enabled 　 : 契約日
+Input　着工式 <受注後自動入力>
+　　　 Enabled 　 : 契約日
+Input　完工式 <受注後自動入力>
+　　　 Enabled 　 : 契約日
+Date　 完了日
+Date　 失注日
+Select 失注理由
+Input　失注備考
+Date　 キャンセル日
+Input　キャンセル備考
+Button 更新
+　　　 Enabled 　 : 権限による
+Button 受注登録
+--
+Click:受注登録
+==>受注新規登録/編集
+Click:更新・登録(Success)
+==>案件新規登録/編集Success
+Click:更新・登録(Error)
+==>案件新規登録/編集Error
+
+[案件新規登録/編集Success]
+確認ダイアログ表示
+title: 登録確認
+main : 登録しますか
+=>保存
+ ----------
+復帰処理
+新規: 一覧取得
+編集: 無し
+
+[案件新規登録/編集Error]
+未・誤入力: 未入力/入力不備項目があります。
+キャンセル日有り/失注理由なし: 失注理由を選択してください

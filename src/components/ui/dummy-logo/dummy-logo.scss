@@ -1,0 +1,17 @@
+@import "../../../App.scss";
+@import "../../../mixin.scss";
+
+.dummy__logo {
+  > span {
+    display: block;
+    width: 242px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    margin: auto;
+    background-color: $base_color;
+    color: $font-white;
+    font-weight: bold;
+    font-size: 27px;
+  }
+}

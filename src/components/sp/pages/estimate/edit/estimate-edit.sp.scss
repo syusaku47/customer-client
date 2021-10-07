@@ -1,0 +1,160 @@
+@import "../../../../../mixin.scss";
+@import "../../../../../App.scss";
+
+.estimate_edit_sp {
+  @include flex_box();
+  @include flex_direction_column();
+
+  &__contents {
+    @include scroll_display_none();
+    flex: 1;
+    overflow-y: scroll;
+    padding: 0 !important;
+    &__up_side {
+      padding: 0 0.5rem;
+    }
+  }
+
+  .category_wrap {
+    .item_wrap {
+      /**
+       * 個別対応
+       */
+
+      /* date-picker 使用部分 */
+      &.item_date_picker {
+        &:not(:first-of-type) {
+          margin-top: 20px !important;
+        }
+        /* 工期 */
+        &.item_construction_period {
+          > .item_label {
+            @include flex_box();
+            @include flex_align_end();
+            > .col1 {
+              width: 4em;
+            }
+            > .col2 {
+              @include flex_box();
+              @include flex_align_end();
+              flex: 1;
+              .during {
+                margin-left: auto;
+                margin-right: 0.5em;
+                .ui.input {
+                > input {
+                    text-align: right;
+                    padding: 0 0.5em !important;
+                    width: 5em;
+                    height: 100%
+                  }
+                }
+              }
+            }
+          } // > .item_label
+          > .item_body {
+            .inner {
+              @include flex_box();
+              @include flex_align_center();
+              @include flex_container_wrap();
+              > .datePicker {
+                max-width: 13em;
+                &:first-of-type {
+                  margin-bottom: 5px;
+                }
+              }
+              > .tilde {
+                @include flex_box();
+                @include flex_align_center();
+                margin: 0 10px;
+              }
+            }
+          } // > .item_body
+        }
+      }
+
+      /* 現場名称 */
+      &.item_site {
+        > .item_label {
+          @include flex_box();
+          @include flex_align_end();
+          > .btn {
+            margin-left: auto;
+          }
+        }
+      }
+    } //.item_wrap
+  } //.category_wrap
+
+  &__secondary_contents {
+    > .secondary_header {
+      > div {
+        &:first-of-type {
+          width: 3em;
+        }
+        &:last-of-type {
+          margin-left: auto;
+          .btn {
+            min-height: 0;
+          }
+        }
+      }
+    }
+    &__remarks {
+      padding: 1rem;
+      position: relative;
+
+      &::after {
+        @include pseudo_hor_border();
+        top: 0;
+      }
+      > div {
+        font-weight: bold;
+        margin-bottom: 0.5rem !important;
+      }
+      > textarea {
+        resize: none;
+        appearance: none;
+        width: 100%;
+        border-radius: 0.5rem;
+      }
+    }
+  } // .estimate_edit_sp__secondary_contents
+
+  &__secondary_footer {
+    &__wrap {
+      background-color: #e0e1e2;
+      padding: 0.7rem 1rem;
+      .row {
+        text-align: right;
+        margin-top: 5px;
+        @include flex_box();
+        @include flex_content_end();
+        &:first-child {
+          margin-top: 0;
+        }
+        &__col1 {
+          width: 4em;
+        }
+        &__col2 {
+          min-width: 7em;
+        }
+      }
+    }
+  }
+} // estimateEditSP
+
+.estimate_edit_sp_footer {
+  > .btn {
+    padding: 0.5rem !important;
+    &:first-of-type {
+      flex: 2;
+    }
+    &:not(:first-of-type) {
+      flex: 1;
+    }
+    @include mq_max(xs) {
+      font-size: 0.85rem;
+    }
+  }
+}

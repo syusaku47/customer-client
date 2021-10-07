@@ -1,0 +1,12 @@
+.file_delete_dialog {
+  &__body {
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  &__footer {
+    .btn {
+      width: 7em !important;
+    }
+  }
+}

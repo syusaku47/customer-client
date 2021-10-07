@@ -1,0 +1,29 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.projectDetailSP {
+  height: 100%;
+  &__body {
+    height: calc(100% - 56px);  // detail_page_footer の高さ分マイナス
+    &__header {
+      /* ヘッダーのborder-bottomと色が被って縦方向中央揃いになってないように見える対応。 */
+      border-bottom: solid 2px $base_color;
+      > .btn {
+        margin-left: auto;
+      }
+    } // projectDetailSP__body__header
+
+    &__contents {
+      height: calc(100% - 40px);  // secondary_header の高さ分マイナス
+      padding-top: 5px;
+      > div {
+        height: 100%;
+        > .tabular.menu {
+          > .item {
+            width: calc(100% / 5);
+          }
+        }
+      }
+    } // CustomerDetailSP__body__contents
+  }
+}

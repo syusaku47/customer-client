@@ -1,0 +1,83 @@
+@charset "UTF-8";
+@import "../../../../mixin.scss";
+@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
+
+body.pc{
+.btn.primary.customer_all,
+.btn.primary.customer_prospect,
+.btn.primary.customer_ob,
+.btn.primary.edit {
+    position: relative;
+    &::after {
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        content: '';
+        width: 40px;
+        height: 40px;
+        opacity: 0.3;
+        background-size: contain;
+        background-position: center;
+    }
+    &.active,
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.btn.primary.customer_prospect {//見込み
+    background-color: $prospect_color;
+    border-color: $prospect_color !important;
+    &::after {
+        background-image: url("../../../../asset/images/icon_customer_uncontracted.svg") ;
+    }
+    &.active,
+    &:hover {
+        color: $prospect_color !important;
+        &::after {
+            background-image: url("../../../../asset/images/icon_customer_uncontracted_color.svg") ;
+        }
+    }
+}
+.btn.primary.customer_ob {//OB
+    background-color: $ob_color;
+    border-color: $ob_color !important;
+    &::after {
+        background-image: url("../../../../asset/images/icon_customer_ob.svg") ;
+    }
+    &.active,
+    &:hover {
+        color: $ob_color !important;
+        &::after {
+            background-image: url("../../../../asset/images/icon_customer_ob_color.svg") ;
+        }
+    }
+}
+.btn.primary.edit {
+    max-width: 110px;
+    padding-left: 40px !important;
+    &::after {
+        font-family:"Font Awesome 5 Free";
+        content: '\f044';
+        font-weight: 200;
+        color: #FFF;
+        font-size: 20px;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        opacity: 1;
+        left: 0;
+        transform: translate(0%, -50%);
+    }
+    &:hover {
+        &::after {
+            color: $base-color;
+        }
+    }
+}
+}

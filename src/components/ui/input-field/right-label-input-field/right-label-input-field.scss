@@ -1,0 +1,23 @@
+.RightLabelInputField_pc {
+  &__label {
+    margin-left: 5px;
+  }
+  &__field {
+    margin-left: 0;
+  }
+  &.small {
+    input {
+      width :100px;
+    }
+  }
+}
+
+.RightLabelInputField_sp {
+  &__label {
+    display: block;
+  }
+  &__field {
+    display: block;
+    margin-top: 7px;
+  }
+}

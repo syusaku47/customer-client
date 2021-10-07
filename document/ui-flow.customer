@@ -1,0 +1,384 @@
+[顧客 (マップ/リスト)]
+顧客検索
+Card
+Button
+└ 顧客新規登録
+└ CSV出力
+└ リスト表示
+--
+Card
+==>Card-顧客
+顧客検索
+==>顧客検索
+Click:場所検索
+==> 場所検索ダイアログ
+Click:ルート検索
+==> ルート検索ダイアログ
+Click:リスト表示
+==> 顧客 (リスト)
+Click:顧客新規登録
+==> 顧客新規登録/編集
+
+
+
+
+
+[Card-顧客]
+顧客名
+郵便番号
+住所
+TEL
+見込みランク
+ランク
+住所画像
+担当者
+--
+Click:Card (Active)
+==>Card-顧客
+
+
+
+
+
+
+[InfoWindow-顧客]
+顧客名
+郵便番号
+住所
+電話番号
+メールアドレス
+担当者名
+見込みランク
+ランク
+住所画像
+Button
+└ 顧客詳細
+└ 案件登録
+└ 対応登録
+└ メーラー起動
+└ ルート検索
+--
+Click:顧客詳細
+==>顧客詳細
+Click:案件登録
+==>案件新規登録
+Click:対応登録
+==>対応履歴新規登録/編集
+Click:ルート検索
+==>ルート検索
+
+
+
+
+
+[顧客 (リスト)]
+顧客検索
+ページャ
+項目
+└ 入力不備Img
+└ OBフラグ
+└ 顧客担当者
+└ 顧客ID
+└ 顧客名
+└ フリガナ
+└ 郵便番号
+└ 都道府県
+└ 住所
+└ TEL
+└ 見込みランク
+└ 顧客ランク
+└ エリア
+└ 建物分類
+└ 間取り
+└ 築年数
+└ 備考
+Button
+└ 顧客新規登録
+└ CSV出力
+└ リスト表示
+--
+Click:Tabele Row (Active Row)
+==>顧客 (リスト)
+DbClick:Tabele Row (Active Row)
+==>顧客詳細
+Click:顧客検索
+==> 顧客検索
+Click:地図表示
+==> 顧客 (マップ/リスト)
+Click:顧客新規登録
+==> 顧客新規登録/編集
+
+
+
+
+
+
+
+
+
+
+[顧客検索]
+・PC:内部 SP:ダイアログ
+・Select内「全て」を追加
+ ----------
+・追加項目
+Input　築年数 (年以上)
+Input　築年数 (年以下)
+Input　社内メモ
+Input　LINEID
+Input　FaceBookID
+Input　TwitterID
+Input　IndtagramID
+ ----------
+Select 店舗<初期表示ログイン者の店舗>
+Select 担当者<初期表示ログイン者>
+Input　顧客名
+Input　顧客名フリガナ
+Input　顧客名TEL
+　　　 Validation : 半角数字 「-」
+Check　不備情報のみ
+Input　郵便番号
+　　　 Validation : 半角数字のみ/maxLen:3,4
+Select 都道府県
+Select 顧客ランク<指定なしを追加>
+Select 顧客ランクフィルター<のみ／以上／以下>
+　　　 <顧客ランクが全て、指定なしの場合Disable>
+Select 顧客見込みランク
+Select 顧客見込みランクフィルタ<のみ／以上／以下>
+Select エリア
+Select 建物分類
+Select 間取り
+Input　築年数 (年以上)
+　　　 Validation : 半角数字のみ
+Input　築年数 (年以下)
+　　　 Validation : 半角数字のみ
+Select 完工時期(年以上)
+Select 完工時期(月以上)
+Select 完工時期(年以下)
+Select 完工時期(月以下)
+Select 最終完工時期(年以上)
+Select 最終完工時期(月以上)
+Select 最終完工時期(年以下)
+Select 最終完工時期(月以下)
+Input　総工事金額（最小値）<単位:万円>
+　　　 Validation : 半角数字のみ
+Input　総工事金額（最大値）<単位:万円>
+　　　 Validation : 半角数字のみ
+Input　工事回数（最小値）<単位:回>
+　　　 Validation : 半角数字のみ
+Input　工事回数（最大値）<単位:回>
+　　　 Validation : 半角数字のみ
+Check　関連タグ(複数)
+Check　部位(複数)
+Text　 備考
+Input　LINEID<半角英数字記号のみ>
+　　　 Validation : 半角英数字 (小文字)、
+　　　　　　　　　　記号：「.」、「-」、「_」のみ。
+　　　　　　　　　　文字数：2～40字
+Input　FaceBookID<半角英数記号のみ>
+　　　 Validation : 半角数字、文字数：5～50字（要確認）
+Input　TwitterID<半角英数記号のみ>
+　　　 Validation : 半角英数字、記号：「_」のみ。文字数：4～15文字
+Input　IndtagramID<半角英数記号のみ>
+　　　 Validation : 半角英数字、記号：「.」、「_」のみ。文字数：最大30字
+Input　メールアドレス<半角英数記号のみ>
+　　　 Validation : アドレス
+Button 検索
+
+
+
+
+
+[顧客詳細]
+顧客検索(SPのみ)
+顧客編集
+リスト
+└ 案件情報
+　 Button 新規案件作成
+　 Button 絞り込み
+└ 対応履歴
+　 Button 新規対応履歴作成
+　 Button 絞り込み
+└ ファイル
+　 Button 新規ファイル作成
+　 Button 絞り込み
+└ メンテナンス
+　 Button 新規案件作成
+　 Button 絞り込み
+Button 戻る
+--
+顧客検索(SPのみ)
+==> 顧客検索
+顧客編集
+==>顧客新規登録/編集
+Click:新規案件作成
+=={顧客データ}=>案件新規登録/編集
+Click:新規対応履歴作成
+=={顧客データ}=>対応履歴新規登録/編集
+Click:新規ファイル作成
+=={顧客データ}=>ファイル新規登録/編集
+Click:新規メンテナンス作成
+=={顧客データ}=>メンテナンス新規登録/編集
+
+
+
+
+[顧客新規登録/編集]
+編集-PC:内部 SP:ダイアログ
+Select内「指定無し」を追加
+ ----------
+ペット情報リスト
+項目
+└ 指名
+└ 続柄
+└ 携帯電話
+└ 生年月日
+Button
+└ 登録
+└ 編集
+└ 削除
+ ----------
+家族情報リスト
+項目
+└ 名前
+└ 種別
+└ 性別
+└ 才
+Button
+└ 登録
+└ 編集
+└ 削除
+ ----------
+Input　顧客ID<自動入力>
+　　　 Enabled 　 : false
+Input　OBフラグ<自動入力>
+　　　 Enabled 　 : false
+Input　*名称
+　　　 Validation : 60文字まで
+Input　敬称<初期表示「様」>
+　　　 Validation : 10文字まで
+Input　フリガナ
+　　　 Validation : 60文字まで
+Input　*郵便番号<maxLen:3,4>
+　　　 Validation : 半角数字のみ
+Button 住所入力
+Button 地図から入力
+Select *都道府県
+　　　 <初期表示は「ログイン者の所属営業所の住所の都道府県名」>
+Input　*市区町村
+　　　 Validation : 255文字まで
+Input　*地名、番地
+　　　 Validation : 255文字まで
+Input　建物名等
+　　　 Validation : 255文字まで
+Input　Email<半角英数記号のみ>
+　　　 Validation : アドレス
+Input　電話
+　　　 Validation : 20文字まで,登録時重複チェック(サーバー)
+Input　Fax
+　　　 Validation : 20文字まで,登録時重複チェック(サーバー)
+Input　電話2
+　　　 Validation : 20文字まで
+Input　電話3
+　　　 Validation : 20文字まで
+Input　Email2<半角英数記号のみ>
+　　　 Validation : アドレス
+Input　Email3<半角英数記号のみ>
+　　　 Validation : アドレス
+Select エリア
+Select 営業担当（店舗）<初期表示ログイン者の店舗>
+Select *営業担当(担当者)<初期表示ログイン者>
+Select 顧客見込みランク
+Select 顧客ランク
+　　　 Enabled 　 : False
+Select 発生源
+Check　見込部位
+Check　部位
+Input　LINE ID<半角英数記号のみ>
+　　　 Validation : 半角英数字 (小文字)、記号：「.」、「-」、「_」のみ。文字数：2～40字
+Button LINE(ID Copy)
+Input　FaceBook ID
+　　　 Validation : 半角数字、文字数：5～50字（要確認）
+Button FaceBook(IDページへ遷移)
+Input　Twitter ID
+　　　 Validation : 半角英数字、記号：「_」のみ。文字数：4～15文字
+Button Twitter(IDページへ遷移)
+Input　Instagram ID
+　　　 Validation : 半角英数字、記号：「.」、「_」のみ。文字数：最大30字
+Button Instagram(IDページへ遷移)
+Select 建物分類
+Select 間取り
+Input　築年数<初期値0> 変更の可能性あり
+Input　備考
+　　　 Validation : 500文字まで
+Input　社内メモ1
+　　　 Validation : 255文字まで
+Input　社内メモ2
+　　　 Validation : 255文字まで
+Check　マイカー種別
+　 <その他に入力後登録ボタンを押下でマスタに入力情報は保存せず、顧客情報に登録。>
+Check　関連タグ
+　 <その他に入力後登録ボタンを押下でマスタに入力情報は保存せず、顧客情報に登録。>
+Input　紹介者
+　　　 Validation : 60文字まで
+Date　 結婚記念日
+Button 登録
+ ----------
+復帰処理
+└ 顧客詳細 : 無し
+└ 顧客画面 : 顧客一覧取得
+--
+Click:家族情報登録
+==>家族情報登録/編集
+Click:ペット情報登録
+==>ペット情報登録/編集
+Click:登録(Error)
+==>顧客新規登録/編集Error
+
+[顧客新規登録/編集Error]
+未・誤入力:未入力/入力不備項目があります。
+電話番号重複:入力された電話番号はすでに登録済みです\n今一度お確かめ下さい
+住所特定不可:' '
+住所重複:' '
+
+
+
+
+[家族情報登録/編集]
+Input　*氏名
+　　　 Validation : 最大文字数半角255文字(全角85文字)
+Input　*続柄
+　　　 Validation : 最大文字数半角255文字(全角85文字)
+Input　携帯電話
+　　　 Validation : 半角数字 「-」 最大文字数20
+Date　 生年月日
+Button 登録
+ ----------
+復帰処理
+└ 家族情報一覧取得
+--
+Click:登録(Error)
+==>家族情報登録/編集Error
+
+[家族情報登録/編集Error]
+未・誤入力:未入力/入力不備項目があります。
+
+
+
+
+[ペット情報登録/編集]
+Input　*名前
+　　　 Validation : 最大文字数半角255文字(全角85文字)
+Input　才
+　　　 Validation : 半角数字, 3桁
+Select 性別 <指定無し/オス/メス>
+Button 登録
+ ----------
+復帰処理
+└ ペット情報一覧取得
+--
+Click:登録(Error)
+==>ペット情報登録/編集Error
+
+[ペット情報登録/編集Error]
+未・誤入力:未入力/入力不備項目があります。

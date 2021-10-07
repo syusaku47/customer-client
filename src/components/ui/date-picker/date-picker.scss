@@ -1,0 +1,120 @@
+@import "../../../App.scss";
+@import "../../../mixin.scss";
+
+.datePicker {
+  position: relative;
+  max-width: 10em;
+  > .MuiFormControl-root {
+    width: 100%;
+    > .MuiOutlinedInput-adornedEnd {
+      padding-right: 1em;
+      > .MuiOutlinedInput-input {
+        padding: 0.75em 0 0.75em 1em;
+      }
+      > .MuiInputAdornment-root {
+        > .MuiIconButton-root {
+          padding: 0;
+          top: 3px;
+          outline: none;
+        }
+      }
+      > .MuiOutlinedInput-notchedOutline {
+        border: 1px solid rgba(34, 36, 38, 0.15);
+        //top: 0;
+        // bottom: -5px;
+      }
+    }
+  }
+
+  &.InputTextError {
+    > .MuiFormControl-root {
+      background-color: $form_error_bg_color;
+      .MuiOutlinedInput-input {
+        color: $form_error_text_color;
+      }
+
+      .MuiOutlinedInput-notchedOutline {
+        border: 1px solid $form_error_border_color !important;
+      }
+    }
+  }
+}
+
+.MuiDialog-root {
+  > .MuiDialog-container {
+    > .MuiPaper-root {
+      > .MuiDialogContent-root {
+        > .MuiPickersBasePicker-container {
+          > .MuiPickersToolbar-toolbar {
+            background-color: $base-color;
+          }
+          > .MuiPickersBasePicker-pickerView {
+            > .MuiPickersSlideTransition-transitionContainer {
+              > div {
+                > .MuiPickersCalendar-week {
+                  > div {
+                    > .MuiButtonBase-root {
+                      &.MuiPickersDay-daySelected {
+                        background-color: $base-color;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      > .MuiDialogActions-root {
+        > .MuiButton-textPrimary {
+          color: $base-color;
+        }
+      }
+    }
+  }
+}
+
+body.pc {
+  .datePicker
+    > .MuiFormControl-root
+    > .MuiOutlinedInput-adornedEnd
+    > .MuiOutlinedInput-input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+    width: 80px;
+  }
+  .datePicker
+    > .MuiFormControl-root
+    > .MuiOutlinedInput-adornedEnd
+    > .MuiOutlinedInput-notchedOutline {
+    bottom: 0;
+  }
+  .datePicker
+    > .MuiFormControl-root
+    > .MuiOutlinedInput-adornedEnd
+    > .MuiInputAdornment-root
+    > .MuiIconButton-root {
+    top: 0;
+  }
+  .datePicker > .MuiFormControl-root > .MuiOutlinedInput-adornedEnd {
+    padding-right: 4px;
+  }
+}
+
+body.sp {
+  .datePicker {
+    > .MuiFormControl-root {
+      > .MuiOutlinedInput-adornedEnd {
+        > .MuiOutlinedInput-input {
+          border: none !important;
+        }
+
+        > .MuiInputAdornment-positionEnd {
+          margin-top: -4px;
+        }
+      }
+    }
+  }
+}

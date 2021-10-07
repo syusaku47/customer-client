@@ -1,0 +1,18 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.support_history_card {
+  .card_base_row {
+    &__col_right {
+      width: 5em !important;
+      .date {
+        text-align: center;
+        background-color: $emphasis_color2;
+        font-size: 0.9rem;
+      }
+      .rect_label {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

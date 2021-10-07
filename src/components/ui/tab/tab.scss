@@ -1,0 +1,27 @@
+@import "../../../mixin.scss";
+
+.ui.attached.tabular.menu {
+  > .item {
+    font-size: 12px;
+    padding: 0;
+    @include flex_box();
+    @include flex_content_center();
+  }
+  @include mq_max(xs) {
+    > .item {
+      font-size: 10px;
+    }
+  }
+}
+.ui.bottom.attached.segment.tab {
+  height: calc(100% - 2.85714286em);
+  overflow: auto;
+  padding: 0;
+  @include scroll_display_none();
+}
+
+body.pc{
+  .ui.bottom.attached.segment.tab {
+    height: /*inherit*/ 100%;
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../../../../App.scss";
+@import "../../../../../mixin.scss";
+
+.estimate_detail_info_sp {
+  padding: 1rem;
+  .t_row {
+    .t_header {
+      max-width: 6em !important;
+    }
+  }
+  &_bottom {
+    @include flex_box();
+    @include flex_content_center();
+    padding: 1em;
+  }
+}

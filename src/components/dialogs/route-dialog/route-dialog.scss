@@ -1,0 +1,227 @@
+@import "/src/mixin";
+
+.route_dialog.pc {
+  @include flex_direction_column();
+  overflow-y: hidden;
+
+  .route_dialog__body {
+    @include flex_direction_column();
+    flex: 1;
+    padding: 20px;
+    overflow-y: hidden;
+
+    &__header {
+      padding: 0 10px;
+      .ui.tabular.menu {
+        border-bottom: none;
+        button {
+          box-shadow: none !important;
+
+          &.item {
+            border-bottom: none !important;
+            width: 104px;
+            padding: 0 10px;
+            svg {
+              margin-right: 5px;
+            }
+            /* button 個別対応 */
+            &.selected {
+              background-color: $base_color;
+              color: #fff;
+              svg {
+                .a {
+                  fill: #fff;
+                }
+              }
+            }
+
+            &:hover {
+              svg {
+                .a {
+                  fill: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /* 時間表示部分 */
+      &__time {
+        @include flex_align_center();
+        margin-left: 40px;
+        padding-bottom: 4px;
+      } // route_dialog__body__header__time
+    }
+
+    &__contents {
+      flex: 1;
+      // overflow-y: scroll;
+      border: 1px solid #cccccc !important;
+      border-radius: 4px;
+      padding: 20px;
+
+      .item_wrap {
+        @include flex_direction_column();
+        .item_box {
+          @include flex_align_center();
+          .item_head {
+            width: 110px;
+          }
+
+          .base_input {
+            min-width: 28em;
+          }
+
+          .btn {
+            margin-left: 5px;
+            
+            &.exchange {
+              background-color: white;
+              &:hover {
+                background-color: white !important;
+                opacity: 0.7;
+              }
+            }
+
+            &.route {
+              border: 1px solid $base_color;
+            }
+          }
+
+          + .item_box {
+            // justify-content: center;
+            margin-left: 18em;
+
+            .time_distance {
+              min-width: 12.5em;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    box-shadow: none !important;
+    &.sm {
+      min-height: auto;
+      height: 30px;
+    }
+  }
+}
+
+.route_dialog.sp {
+  @include flex_box();
+  @include flex_direction_column();
+  height: 100%;
+
+  .route_dialog__header {
+    @include flex_box();
+
+    .bottom_border_button {
+      width: 100%;
+      margin-left: 10px;
+      &:last-of-type {
+        margin-right: 10px;
+      }
+
+      &__label {
+        @include mq_max(xs) {
+          display: none;
+        }
+      }
+    }
+  } // route_dialog__header
+
+  .route_dialog__body {
+    @include scroll_display_none();
+    flex: 1;
+    overflow-y: scroll;
+    padding: 10px;
+
+    &__route {
+      padding: 0 10px;
+      @include mq_max(xs) {
+        padding: 0 5px;
+      }
+
+      &__header {
+        @include flex_box();
+        @include flex_align_end();
+        margin-bottom: 4px;
+        .btn {
+          padding: 0.5em 0.75em;
+          @include mq_max(xs) {
+            padding: 0.5em;
+          }
+          + .btn {
+            margin-left: 5px;
+          }
+          &:first-of-type {
+            margin-left: auto;
+          }
+
+          &.map_search {
+            i {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      &__body {
+        > div {
+          &:last-of-type {
+            @include flex_box();
+            @include flex_align_center();
+            margin: 10px 0;
+
+            .btn {
+              &.exchange {
+                background-color: white;
+                &:hover {
+                  background-color: white !important;
+                  opacity: 0.7;
+                }
+              }
+
+              &.route {
+                border: 1px solid $base_color;
+              }
+            }
+
+            .dot_border {
+              flex: 1;
+              margin: 0 6px;
+            }
+          }
+        }
+      } //route_dialog__body__route__body
+    }
+  } // route_dialog__body
+
+  .route_dialog__footer {
+    > div {
+      &:first-of-type {
+        padding: 1rem 1rem 0;
+        > div {
+          &:last-of-type {
+            font-size: 0.8em;
+          }
+        }
+      }
+      &:last-of-type {
+        @include flex_box();
+        padding: 1rem;
+        .btn {
+          width: 100%;
+          + .btn {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  } // route_dialog__footer
+}

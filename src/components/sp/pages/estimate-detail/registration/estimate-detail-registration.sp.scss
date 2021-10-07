@@ -1,0 +1,22 @@
+@import "../../../../../App.scss";
+@import "../../../../../mixin.scss";
+
+.registration_block {
+  @include flex_box();
+  @include flex_direction_column();
+  height: 100%;
+
+  .registration_wrap {
+  @include flex_all_center();
+  flex: 1;
+    padding: 15% 0;
+    text-align: center;
+  }
+
+  .estimate_detail_search_footer {
+    .btn {
+      flex: 1;
+      font-size: 0.9rem !important;
+    }
+  }
+}

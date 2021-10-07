@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@import "../../../../mixin.scss";
+//@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
+
+body.pc{
+  .btn.primary.maintenance_all,
+  .btn.primary.maintenance_started,//未対応
+  .btn.primary.maintenance_completed,//対応済
+  .btn.primary.edit {
+      position: relative;
+      &::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          content: '';
+          opacity: 0.3;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      &.active,
+      &:hover {
+          font-weight: bold;
+      }
+  }
+
+.btn.primary.maintenance_started {//未契約
+  background-color: $started_color;
+  border-color: $started_color !important;
+  &::after {
+      background-image: url("../../../../asset/images/icon_maintenance_started.svg") ;
+      width: 40px;
+      height: 36px;
+    }
+  &.active,
+  &:hover {
+      color: $started_color !important;
+      &::after {
+          background-image: url("../../../../asset/images/icon_maintenance_started_color.svg") ;
+      }
+  }
+}
+.btn.primary.maintenance_completed {//完工
+  background-color: $completed_color;
+  border-color: $completed_color !important;
+  &::after {
+        width: 41px;
+        height: 36px;
+        background-image: url("../../../../asset/images/icon_maintenance_completed.svg") ;
+  }
+  &.active,
+  &:hover {
+      color: $completed_color !important;
+      &::after {
+          background-image: url("../../../../asset/images/icon_maintenance_completed_color.svg") ;
+      }
+  }
+}
+
+.btn.primary.edit {
+  max-width: 110px;
+  padding-left: 40px !important;
+  &::after {
+      font-family:"Font Awesome 5 Free";
+      content: '\f044';
+      font-weight: 200;
+      color: #FFF;
+      font-size: 20px;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      opacity: 1;
+      left: 0;
+      transform: translate(0%, -50%);
+  }
+  &:hover {
+      &::after {
+          color: $base-color;
+      }
+  }
+}
+}

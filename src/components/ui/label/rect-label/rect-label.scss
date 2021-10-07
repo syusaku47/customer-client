@@ -1,0 +1,10 @@
+@import '../../../../mixin';
+
+.rect_label {
+  @include flex_box();
+  @include flex_align_center();
+  @include flex_content_center();
+  min-width: 3em;
+  height: 2em;
+  padding: 0 0.5em;
+}

@@ -1,0 +1,48 @@
+@import "../../../../../mixin.scss";
+@import "../../../../../App.scss";
+
+.support_history_search_box_sp {
+  .category_wrap {
+    .item_wrap {
+      .item_body {
+      } //.item_body
+
+      /**
+       * body内 個別対応
+       */
+      /* 年月日個別の期間系 */
+      .item_period {
+        &__inner {
+          @include flex_box();
+          @include flex_container_wrap();
+          > div {
+            @include flex_box();
+            @include flex_align_center();
+            .ui.dropdown {
+              margin-right: 3px;
+            }
+          }
+
+          &__year {
+            width: 100%;
+            margin-bottom: 0.5rem;
+          }
+
+          &__month
+          /* &__day */ {
+            margin-right: 0.5rem;
+          }
+        }
+        .tilde {
+          margin: 0.5rem 0;
+        }
+      }
+
+      &.tags_form {
+        &:not(:first-of-type) {
+          margin: 1em 0;
+        }
+      }
+    } //.item_wrap
+  } //.category_wrap
+} // searchBoxCustomerSP

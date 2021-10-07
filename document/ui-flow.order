@@ -1,0 +1,86 @@
+[受注新規登録/編集]
+<Dialog>ダイアログ</Dialog>
+案件参照
+└ Check Disabled
+　 未契約
+　 未完工
+ ----------
+Input　現場名称
+　　　 Enabled 　 : False
+Input　案件名
+　　　 Enabled 　 : False
+Button 案件参照
+　　　 Enabled 　 : タブからのみ
+案件見積リスト <単一選択>
+└ 見積選択 <Clickにより変動>
+└ 印刷名称
+└ 見積日
+└ 見積作成者
+└ 税込合計見積
+└ 税込合計原価
+└ 粗利額
+└ 粗利率
+└ 備考
+ ----------
+Input　見積番号
+　　　 Enabled 　 : False
+Input　見積金額
+　　　 Enabled 　 : False
+Input　見積原価
+　　　 Enabled 　 : False
+Input　見積工期(最小値)
+　　　 Enabled 　 : False
+Input　見積工期(最大値)
+　　　 Enabled 　 : False
+Button 見積選択変更
+Date　 契約日
+Input　受注金額
+　　　 Enabled 　 : False
+Input　受注原価
+　　　 Enabled 　 : False
+Input　受注金額
+　　　 Enabled 　 : False
+Input　受注工期(最小値)
+　　　 Enabled 　 : False
+Input　受注工期(最大値)
+　　　 Enabled 　 : False
+Date　 着工予定日
+Date　 完工予定日
+Button 受注工期から取得
+Date　 着工式
+Date　 完工式
+ ----------
+Inputのみ変動
+└ 契約金
+└ 着工金
+└ 中間金
+└ 中間金
+└ 完工金
+Date　 請求日
+Date　 入金予定日
+Date　 入金額
+　　　 Enabled 　 : False
+Date　 入金日
+　　　 Enabled 　 : False
+ ----------
+Input　未割当金
+　　　 Enabled 　 : False
+Button 未割当金を完工金に含める
+ ----------
+Text　 備考
+Button 登録
+Button キャンセル
+--
+Click:登録(Success)
+==>受注新規登録/編集(Success)
+Click:登録(Failure)
+==>受注新規登録/編集(Failure)
+
+
+[受注新規登録/編集(Success)]
+[受注新規登録/編集(Failure)]
+契約金がマイナス:契約金がマイナスでは登録できません。
+着工金がマイナス:着工金がマイナスでは登録できません。
+中間金がマイナス:中間金がマイナスでは登録できません。
+完工金がマイナス:完工金がマイナスでは登録できません。
+

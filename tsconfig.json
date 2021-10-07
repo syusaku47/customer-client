@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+, "src/model/validation/master/master-tax.validation.ts", "src/model/validation/master/master-tax.validation.ts", "src/model/validation/master/master-unit.validation.ts", "src/model/validation/master/master-unit.validation.ts", "src/model/validation/master/master-after-maintenance.validation.ts", "src/model/validation/master/master-after-maintenance.validation.ts", "src/model/validation/master/master-after-maintenance.validation.ts", "src/model/validation/master/master-after-maintenance.validation.ts", "src/model/validation/master/master-after-maintenance.validation.ts", "src/model/validation/master/master-after-maintenance.validation.ts", "src/model/validation/master/master-quote-fixed.validation.tsre.validation.ts", "src/model/validation/master/master-customer-rank-update.validation.ts-rank.validation.tsr-rank.validation.ts", "src/model/validation/master/.validation.ts", "src/model/validation/master/.validation.ts", "src/model/validation/master/.validation.ts"  ]
+}

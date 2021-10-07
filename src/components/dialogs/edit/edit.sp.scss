@@ -1,0 +1,65 @@
+@import "../../../App.scss";
+@import "../../../mixin.scss";
+
+.edit_sp_body {
+  flex: 1;
+  overflow-y: auto !important;
+  @include scroll_display_none();
+  // 汎用
+  &_inner {
+    padding: 0 1rem;
+
+    @include mq_max(xs) {
+      .category_wrap {
+        padding: 1rem 0.5rem;
+      } // .category_wrap max320px
+    }
+
+    /* semantic 個別*/
+    .ui.segment {
+      box-shadow: none !important;
+      padding: 0.5rem !important;
+    }
+  } //.edit_sp_body_inner
+
+  .hidden_category {
+    display: none;
+  }
+
+  &.show_all {
+    .hidden_category {
+      display: block;
+      &.offset {
+        margin-top: 15px;
+      }
+    }
+  }
+} //.edit_sp_body
+
+.show_switch {
+  width: 100%;
+  padding: 0.25em 0;
+  background-color: $base_color;
+  color: $font-white;
+  text-align: center;
+  font-size: 0.9rem;
+  &_inner {
+    > span {
+      margin: 10px;
+    }
+  }
+}
+
+.edit_sp_footer {
+  @include flex_box();
+  @include flex_align_center();
+  @include flex_content_center();
+  padding: 0.5em !important;
+  .btn {
+    margin: 0 5px;
+    width: 100%;
+    @include mq_min() {
+      width: calc(100% / 2);
+    }
+  }
+} //.edit_sp_footer

@@ -1,0 +1,17 @@
+@import '../../../setting';
+
+.text_area {
+  &.error {
+    textarea {
+      border: 1px solid $form_error_border_color !important;
+      background-color: $form_error_bg_color;
+      color: $form_error_text_color;
+    }
+  }
+}
+
+.align_r {
+  input {
+    text-align: right !important;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../../../mixin';
+@import '../../../../App';
+
+.support_history_detail_sp {
+  &__body {
+    &__table {
+      .t_row {
+        .t_header {
+          max-width: 6.5em !important;
+        }
+      }
+    }
+  }
+}

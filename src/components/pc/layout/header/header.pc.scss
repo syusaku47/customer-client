@@ -1,0 +1,58 @@
+@import '../../../../mixin.scss';
+@import "../../../../App.scss";
+
+body.pc {
+    .App {
+        .headerPC {
+            @include box_shadow();
+            z-index: 1;
+            &__top {
+                display: flex;
+                border: none !important;
+                //border-bottom: 2px solid $base-color !important;
+                justify-content:space-between;
+                line-height: 34px;
+                padding: 0 15px;
+                h1 {
+                    color: $base-color;
+                    line-height: 34px;
+                    font-size: 22px;
+                    font-weight: normal;
+                }
+                .account_box {
+                    font-size: 14px;
+                }
+                button.logout {
+                    min-width: 30px !important;
+                    height: 34px;
+                    margin-left: 10px;
+                    vertical-align: bottom;
+
+                }
+            }
+            &__bottom {
+                @include flex_box();
+                padding: 0 15px;
+                &__menu {
+                    white-space: nowrap;
+                    height: 40px;
+                    font-size: 14px;
+                    line-height: 40px;
+                    min-width: 80px;
+                    cursor: pointer;
+                    padding: 0 10px;
+                    text-align: center;
+                    border-bottom: 5px solid #FFFFFF;
+                    &:hover {
+                        
+                        border-bottom: 5px solid #DFE1E5;
+                    }
+                    &.active {
+                        color: $base-color;
+                        border-bottom: 5px solid $base-color;
+                    }
+                }
+            }
+        }
+    }
+}

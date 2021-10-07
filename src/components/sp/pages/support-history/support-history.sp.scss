@@ -1,0 +1,19 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.support_history_sp {
+  &__header {
+    @include flex_direction_column();
+
+    &__buttons {
+      @include flex_box();
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__footer {
+    .btn {
+      margin: auto;
+    }
+  }
+}

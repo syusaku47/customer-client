@@ -1,0 +1,18 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.file_card {
+  .numero {
+    text-align: center;
+    background-color: $emphasis_color2;
+    line-height: 1.5em;
+  }
+  .card_base_row {
+    &__col_right {
+      .btn {
+        width: 100%;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

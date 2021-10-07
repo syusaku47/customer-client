@@ -1,0 +1,1684 @@
+@import "../../../App.scss";
+@import "../../../_common.scss";
+@import "../../../_form.scss";
+
+body.pc{
+  @include fontFamily();
+  font-size: 16px;
+  min-width: 768px;
+  overflow-x: auto;
+  .comment {
+    font-size: 12px;
+    color: $comment_color;
+    white-space: nowrap;
+  }
+  .ui.selection.dropdown .menu >.item {
+    font-size: 1em;
+  }
+
+  /*--------------------------------*/
+  .App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh !important;
+    overflow-y: hidden;
+    /*> div {
+      @include flex_box();
+      @include flex_direction_column();
+      height: 100%;
+    }*/
+    > footer {
+      background-color: $footer_color;
+      color: #FFF;
+      text-align: center;
+      font-size: 10px;
+    }
+  }
+
+  .base_page_body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    overflow-y: hidden;
+    background-color: $background_color;
+    .cnt_area {//詳細検索OFF
+      flex: 1;
+      height: 100%;
+      overflow-y: hidden;
+      > .inner {
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+        height: 100%;
+        padding: 15px;
+      }
+      &.detail_on {//詳細検索ON
+        > .inner {
+          //display: block;
+          overflow-y: auto;
+          height: inherit;
+          .search_area {
+            overflow: visible;
+          }
+          .result_area {
+            overflow: visible;
+            flex: auto;
+            min-height: 600px;
+          }
+        }
+      }
+      > .inner {
+        .search_area,
+        .result_area {
+          background-color: #FFF;
+          padding: 15px;
+          @include box_shadow();
+        }
+        .result_area.list_area {//リスト表示用
+          padding: 0;
+          @include box_shadow();
+          table {
+            .checkbox {
+              label {
+                width: 22px;
+                height: 22px;
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+
+        /*上部の検索領域*/
+        .search_area {
+          margin-bottom: 15px;
+          padding: 15px 15px 30px 15px;
+          &.only_simple {
+            padding: 15px 15px 5px 15px;
+          }
+        }
+
+
+        /*下部の検索結果領域*/
+        .result_area {
+          overflow: hidden;
+          flex: 1;
+          margin-bottom: 0;
+          .inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            .list_wrap {
+              display: flex;
+              flex-direction: column;
+              //width: 30%;
+              width: 400px;
+              height: 100%;
+              margin-right: 15px;
+              @include border-default();
+              .search_box {//場所検索
+                padding: 10px 10px 0 10px;
+                .item_box {
+                  flex: 1;
+                  margin-right: 5px;
+                  .base_input {
+                    flex: 1;
+                    .ui.input>input {
+                      width: calc(100% - 0.5rem);
+                      padding: 0.5rem;
+                    }
+                  }
+                }
+                button {
+                  min-width: 70px;
+                }
+              }
+              .list_box_sort {
+                display: flex;
+                padding: 10px;
+                button {
+                  flex: 1;
+                  margin-right: 5px;
+                  padding: 5px;
+                  font-size: 14px;
+                }
+                button:last-child{
+                  flex: 1.5;
+                  /*margin-left: auto;*/
+                  margin-right: 0;
+                  margin-left: 10px;
+                }
+              }
+              .list_box {
+                position: relative;
+                height: 100%;
+                overflow-y: auto;
+                border-top: 1px solid $border_default_color;
+                .not_hit {//該当なし
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  margin: auto;
+                  width: 100%;
+                  height: 30px;
+                  line-height: 30px;
+                  text-align: center;
+                  color: $comment_color;
+                }
+              }
+           }
+            .map_area {
+              width: calc( 100% - 400px);
+            }
+            // 重複※不要なら削除
+            // .card {
+            //   position: absolute;
+            //   right: 20px;
+            //   bottom: 20px;
+            //   background-color: #FFF;
+            //   padding: 15px;
+            //   @include box-shadow();
+            // }
+          }
+        }
+      }
+    }
+    footer.btn_area {//フッター固定のボタン領域
+      box-shadow: 0px -3px 6px #00000033;
+      padding: 8px 15px;
+      background-color: #FFF;
+      z-index: 1;
+      @include flex_box();
+      @include flex_space_between();
+      button + button {
+        margin-left: 10px;
+      }
+      .left_box {
+        display: flex;
+        button {
+          width: auto;
+          height: 30px;
+          padding: 0 10px !important;
+        }
+      }
+      .right_box {
+        display: flex;
+        button {
+          width: auto;
+          height: 30px;
+          padding: 0 10px !important;
+        }
+      }
+    }
+  }
+
+  .frame {
+    margin: 5px 15px 15px 0;
+    padding: 15px 15px 5px 15px;
+    @include border-default();
+    .icon_button {
+      @include btn_tips();
+    }
+  }
+  .item_wrap {
+    @include flex_box();
+    font-size: 14px;
+    flex-wrap: wrap;
+    .img_wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .img_box {
+      @include border-default($color:$form_border_color);
+      position: relative;
+      padding: 10px;
+      text-align: center;
+      width: 100px;
+      height: 100px;
+      + .img_box {
+        margin-left: 10px;
+      }
+      img {
+        width: /*100px*/80px;
+        height: 80px;
+        object-fit: contain;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0%;
+        width: 20px !important;
+        height: 20px !important;
+        min-width: inherit;
+        padding: 0 !important;
+        line-height: 20px !important;
+        font-size: 10px !important;
+      }
+    }
+    > * {
+      line-height: 30px;
+      //height: 30px;
+    }
+    .same_width_checkbox {
+      width: 25%;
+      .RightLabelCheckbox {
+        display: block;
+        width: 100%;
+        label {
+          @include ellipsis();
+          width: calc(100% - 10px);
+          margin-right: 10px !important;
+        }
+      }
+    }
+    > button.btn_search {
+      margin-left: auto;
+      height: 30px;
+      margin-bottom: 5px;
+    }
+    .item_head {
+      display: flex;
+      white-space: nowrap;
+      margin-right: 10px;
+      background-color: $table_thead_background_color;
+      // min-width: 80px;
+      padding: 0 10px 0;
+      align-items: center;
+      justify-content: center;
+      &.w90 {
+        min-width: 90px !important;
+      }
+      &.w100 {
+        min-width: 100px !important;
+      }
+    }
+    &.tags_form {
+      .item_box {
+        flex: 1;
+        .flex_wrap_box {
+          flex: 1;
+        }
+      }
+    }
+    .item_box {
+      display: flex;
+      flex-wrap: nowrap /*wrap*/;
+      margin-right: 20px;
+      /*margin-bottom: 10px;*/
+      margin-bottom: 5px;
+      &.large {
+        width: 100%;
+      }
+      &.right_side {
+        margin-left: auto;
+        margin-right: 0 !important;
+      }
+      .add_text_left {
+        position: relative;
+        label.for_select {
+          display: flex;
+          flex-wrap: nowrap;
+          span {
+            display: inline-block;
+            margin-right: 5px;
+            white-space: nowrap;
+          }
+        }    
+      }
+      .add_text_right {
+        margin-right: 5px;
+      }
+      .checkbox {
+        label {
+          margin-right: 20px;
+        }
+      }
+      label {
+        margin-right: 10px;
+      }
+      .w30 {
+        label {
+          min-width: 30px !important;
+        }
+      }
+
+    }
+  }
+
+//絞込み
+.refind_wrap {
+  .item_wrap {
+    .item_head,
+    .LeftLabelInputField-pc.item_box label {
+      min-width: 110px;
+    }
+  }
+}
+
+
+.item_postal {//郵便番号
+  display: flex;
+}
+.item_adress {//住所
+  width: 100%;
+  .for_select {
+    position: relative;
+    > span:first-child {
+      width: 95px;
+    }
+    > span:nth-child(2){
+      position: absolute;
+      left: 76px;
+    }
+  }
+  .LeftLabelInputField_pc {
+    margin-top: 10px;
+    > label {
+      width: 90px;
+      position: relative;
+      span {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+
+  }
+}
+
+//編集
+.cnt_area.detail {//詳細側
+  .editPc_wrap {
+    position: relative;
+    .editPc_body {
+      .edit_pc_body_inner {
+        flex-grow: 1;
+        margin-right: 120px;
+            }
+
+      + .btn_box {
+        position: absolute;
+        width: 120px;
+        top: 15px;
+        right: 20px;
+        text-align: center;
+        z-index: 10;
+        button {
+          width : 110px;
+          + button {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .tab_area {
+    overflow: hidden;
+    > div {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+  .detail_table_area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    table {
+      .checkbox {
+        label {
+          width: 22px;
+          height: 22px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+/*編集*/
+.editPc_body {
+  table {/*案件詳細の『再計算』ボタン用*/
+    button {
+      min-height: auto;
+    }
+  }
+  .item_wrap {
+    .item_head,
+    .LeftLabelInputField-pc.item_box label {
+      min-width: 110px;
+      text-align: center;
+    }
+    .item_head {
+    }
+    .item_box {
+      flex-wrap: nowrap;
+      &.max_width {
+        flex-basis: 100%;
+      }
+      .icon_button {
+        height: 30px;
+        line-height: 30px;
+        font-size: 13px;
+        padding: 0 !important;
+        &.sns {
+          min-width: 30px;
+          margin-left: 5px;
+          line-height: 30px;
+          i {
+            display: inline-block;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    .btn.sm {
+      min-height: auto;
+    }
+  }
+}
+.edit_pc_body_inner {
+  display: flex;
+  > div {
+    flex: 1;
+  }
+}
+.editPc_footer.base_footer {
+  position: relative;
+  .btn {
+    height: 30px;
+    min-height: 30px;
+    padding: 0 0.5em;
+  }
+  .left_box {
+    position: absolute;
+    left: 0;
+    .btn {
+      width: auto;
+    }
+  }
+  .center_box {
+    .btn {
+      //width: auto;
+    }
+  }
+  .right_box {
+    position: absolute;
+    right: 0;
+    .btn {
+      width: auto;
+      min-width: 100px;
+    }
+  }
+  &.sepalate{
+    justify-content: space-between;
+    .left_box {
+      display: flex;
+      position: relative;
+    }
+    .center_box {
+      display: flex;
+      position: relative;
+    }
+    .right_box {
+      display: flex;
+      position: relative;
+    }    
+  }
+}
+
+/*検索結果（選択された情報）*/
+.result_area {
+  .map_area {//地図
+    position: relative;
+    @include map_search_box();
+    @include card();
+    .search-address {
+      display: none !important;
+    }
+  }
+  /*検索結果一覧*/
+  .list_wrap {
+    &.active {
+      .list_box {
+        .list_card {
+          @include box_shadow_inset();
+        }
+      }
+    }
+    .list_box {
+      .card_wrapper {
+        //border-top: 1px solid $table_td_odd_color;
+        //border-bottom: 1px solid $table_td_odd_color;
+        &.active,
+        &:hover {
+          @include box_shadow_inset();
+        }
+      }
+      .card_wrapper:nth-child(even) {
+        background-color: $table_td_even_color !important;
+      }
+      .card_wrapper:nth-child(odd) {
+        background-color: $table_td_odd_color !important;
+      }
+      .list_card {
+        cursor: pointer;
+        padding: 10px;
+        .card_base_row {
+          display: flex;
+          line-height: 30px;
+          font-size: 14px;
+          line-height: 1.5rem;
+          .important {//強調
+            color: $base_color;
+            line-height: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            //max-width: 210px;
+            //overflow-wrap: break-word;
+            span {//ふりがな用（未使用）
+              font-size: 12px;
+            }
+          }
+          .emphasis {//サブ
+            color: $base_color;
+            line-height: 20px;
+            font-size: 14px;
+            margin-bottom: 0px;
+          }
+          .sales_contact {//担当者
+            //width: 140px !important;
+            flex-grow: inherit !important;
+            text-align: right;
+          }
+          .show_type_label {
+            /*@include border-default();*/
+            font-size: 12px;
+            margin-bottom: 5px;
+            background-color: #FFF;
+            text-align: center;
+            width: 70px;
+            height: 30px;
+            span {
+              flex-grow: 1;
+              text-align: center;
+              color: #FFF;
+            }
+            img {
+              height: 20px;
+              margin-left: 2px;
+            }
+          }
+          .rect_label {
+            width: 70px;
+            height: 30px;
+            padding: 0;
+            font-size: 13px;
+            + .rect_label {
+              margin-top: 5px;
+            }
+          }
+          .row1_col1 {
+            flex-grow: 4;
+            //max-width: 223px;
+            overflow-wrap: break-word;
+          }
+          .row1_col2 {
+            flex: 1;
+            margin-left: 5px;
+            display: flex;
+            flex-direction: column;
+          }
+          .row1_col3 {
+            flex: 1;
+            margin-left: 5px;
+          }
+          &.row2,
+          &.row3 {
+            > div {
+              //flex: 1;
+              flex-grow: 1;
+            }
+          }
+          .google {
+            width: 65px;
+            height: 65px;
+            text-align: center;
+            line-height: 60px;
+            background-color: #CCCCCC;
+            vertical-align: bottom;
+            img {
+              width: 100%;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*タブメニュー*/
+.ui.attached.tabular.menu {
+  min-height: 30px;
+  .item {
+    width: 150px;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+}
+
+
+/*flex*/
+.flex_wrap_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex_no_wrap_box {
+  display: flex;
+  flex-wrap: nowrap !important;
+  align-items: flex-end;
+}
+
+.single_column {
+  display: inherit;
+}
+
+  .birth_date,
+  .wedding_anniversary {
+      .DatePicker-pc__label {
+      display: none;
+      }
+  }
+
+  /*暫定*/
+  .auto_height_dialog {
+    .base_dialog_content {
+      > div {
+        height: inherit !important;
+      }
+    }
+  }
+  .max_height_dialog {
+    height: 90% !important;
+    .search_area {
+      padding-bottom: 30px;
+    }
+    .base_dialog_content {
+      > div {
+        height: 100% !important;
+      }
+    }
+  }
+  .max_width_dialog {
+    width: 90% !important;
+    max-width: 90% !important;
+  }
+
+  //地図から検索
+  .map_dialog {
+    width: 90% !important;
+    .registrationAddressMapDialog {
+      position: relative;
+      height: 100%;
+      @include map_search_box();
+      @include card();
+    }
+  }
+}
+
+.search_area,
+.editPc_wrap,
+.refind_wrap {
+  .datePicker {
+    .DatePicker-pc__label {
+      display: none;
+    }
+  }
+}
+
+.table_sort {
+  display: flex;
+  margin-bottom: 5px;
+  .left {
+    display: flex;
+    .count {
+      margin-left: 10px;
+      font-size: 14px;
+      line-height: 28px;
+      span {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+  .right {
+    margin-left: auto ;
+    &.pagenation {
+      .pulldown_select {
+        height: 32px;
+        select {
+          height: 32px;
+          line-height: 30px !important;
+        }
+        .selector::after {
+          top: 14px;
+        }
+      }
+      display: flex;
+      button {
+        background-color: #FFF;
+      }
+      .MuiPaginationItem-outlinedPrimary:hover {
+        background-color: $base_color_opacity_75;
+        color: #FFFFFF;
+      }
+      .MuiPaginationItem-outlinedPrimary.Mui-selected {
+        background-color: $base-color;
+        color: #FFFFFF;
+        opacity: 1;
+      }
+    }
+  }
+  &.bottom {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    .left {
+      display: none;
+    }
+    .right {
+      .pulldown_select {
+        display: none;
+      }
+    }
+  }
+}
+body.pc {
+  .search_area {
+    margin-bottom: 15px;
+  }
+}
+
+/*ダイアログ*/
+body.pc {
+  .base_dialog__header {
+    height: 50px;
+  }
+  .base_dialog_content {
+    height: 100% !important;
+    max-height: calc(100% - 50px);
+    overflow: hidden;
+    > div {
+      //height: 100% !important;
+      overflow: hidden;
+      .base_dialog_content_inner {
+        //height: 200px !important;
+        .editPc_wrap {
+          display: flex;
+          flex-direction: column;
+          .editPc_body {
+            display: flex;
+            flex-direction: column;
+            overflow-y: hidden !important;
+            flex-grow: 1;
+            .result_area.list_area {
+              overflow-y: hidden;
+              flex: 1;
+              .inner {
+                height: 100%;
+                .table_responsive {
+                  height: 100%;
+                }
+              }
+            }
+          }
+          &.detail_on {
+            .editPc_body {
+              display: block;
+              overflow-y: auto !important;
+              height: 100%;
+              > .result_area.list_area {
+                overflow-y: auto;
+              }
+            }
+          }
+
+          .btn.sm {
+            min-height: auto;
+          }
+        }
+      }
+    }
+    .result_area.list_area {//リスト表示用
+      padding: 0;
+      //@include box_shadow();
+      table {
+        .checkbox {
+          label {
+            width: 22px;
+            height: 22px;
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .message_dialog {
+    .base_dialog_content {
+      > div {
+        height: inherit !important;
+      }
+    }
+  }
+  .message_dialog__message {
+    min-width: 300px;
+    min-height: 100px;
+    padding: 30px;
+  }
+  .message_dialog__footer,
+  .base_footer {
+    border-top: 1px solid $base-color;
+    padding: 0.5em !important;
+  }
+}
+
+body.pc{ //絞り込み
+  .refind_wrap {
+    .refind_body {
+      padding: 15px;
+      overflow-y: auto !important;
+    }
+    .refind_footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -ms-flex-pack: center;
+      padding: 0.5em !important;
+      border-bottom-left-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+      .btn {
+        height: 3rem;
+        width: 9rem;
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+body.pc{ //検索ダイアログ
+  .search_dialog {
+    .base_dialog_content_inner {
+      .editPc_body {
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden !important;
+        height: 100%;
+        > .result_area.list_area {
+          flex: 1;
+          overflow-y: hidden;
+          .inner {
+            height: 100%;
+            .table_responsive {
+              height: 100%;
+              overflow-y: auto;
+            }
+          }
+        }
+      }
+      .editPc_wrap.detail_on {
+        .editPc_body {
+          display: block;
+          overflow-y: auto !important;
+          height: 100%;
+          > .result_area.list_area {
+            overflow-y: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+//個別設定
+//顧客
+body.pc { 
+  #customer,
+  .edit_pc_body_inner.edit_customer {
+    //.search_area {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 140px;
+        }
+      }
+    //}
+  }
+  #customer {
+    .list_card {
+      .row1_col1 {
+        width: 223px;
+      }
+    }
+  }
+  .customer {
+    .base_dialog_content > div .base_dialog_content_inner .editPc_wrap {
+      .editPc_body {
+        overflow-y: auto !important;
+      }
+    }
+  }
+}
+
+/*案件*/
+body.pc {
+  #project,
+  .edit_pc_body_inner.edit_project {
+    //.search_area {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 130px;
+        }
+      }
+    //}
+  }
+  #project {
+    .list_card {
+      .row1_col1 {
+        width: 223px;
+      }
+    }
+  }
+/*
+  .construction_period_start {
+    margin-right: 3px;
+  }
+*/
+  .construction_period_end {
+    label {
+      width: 14px;
+      margin-right: 3px !important;
+    }
+  }
+}
+
+
+/*見積*/
+body.pc { 
+  #estimate {
+    .editPc_body {
+      padding: 15px 15px 10px;
+    }
+    .estimate_price_area {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          margin-right: 5px;
+          min-width: 80px;
+        }
+        .item_box {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  //見積もり画面共通
+  @mixin for_estimate_edit() {
+    .item_wrap > * {
+      line-height: 26px;
+    }
+    .item_head {
+      min-width: 120px !important;
+    }
+    input {
+      height: 26px;
+    }
+    .item_box > button {
+      height: 26px;
+      padding: 0 0.5em!important;
+    }
+  }
+
+  .EstimateEditPC {
+    display: flex;
+    flex-direction: column;
+    /*min-height: 100%;*/
+    height: 100%;
+    .estimate_detail {//上部領域
+      display: flex;
+      .left_box {
+        flex: 7;
+        @include for_estimate_edit();
+      }
+      .right_box {
+        flex: 2;
+        .item_wrap {
+          height: 100%;
+          .item_box {
+            width: 100%;
+            margin-right: 0;
+            .item_head {
+              min-width: 60px;
+            }
+            textarea {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+    .estimate_explore {
+      flex-grow: 1;
+      .estimate_box {
+        flex-grow: 1;
+      }
+    }
+  }
+  .EstimateSearchDialog {//見積検索ダイアログ
+    display: flex;
+    height: 100%;
+    .left_box,
+    .right_box {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      .search_area {
+        @include border-default();
+        margin-bottom: 5px;
+        padding: 5px 5px 0px;
+        > div {
+          width: 100%;
+        }
+      }
+      .result_area {
+        flex-grow: 1;
+        overflow: hidden;
+        .inner {
+          height: 100%;
+          .table_responsive {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .left_box {
+      display: flex;
+      flex-direction: column;
+      padding-right: 10px;
+      flex: 2;
+      .search_area {//明細複写
+        //min-height: 150px;
+        overflow-y: auto;
+        //flex-grow: 2;
+      }
+      .result_area {
+        //flex-grow: 2;
+      }
+    }
+    .right_box {
+      padding-left: 10px;
+      flex: 1;
+      .search_area {//見積明細（選択）
+
+      }
+      .item_wrap .item_head {
+        min-width: 70px;
+      }
+    }
+  }
+  .AddMasterMeisai {//見積明細登録ダイアログ
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .estimate_explore {
+      flex-grow: 1;
+      .tree_box {
+        margin-bottom: 30px;
+      }
+      .all_select {
+        /*margin-top: 5px;*/
+        height: 30px;
+        .comment {
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  .AddMasterMeisai,//見積明細登録ダイアログ
+  .estimate {//見積詳細画面
+    .during {
+      input {
+        width: 50px;
+      }
+    }
+    .estimate_explore {//中央領域
+      display: flex;
+      flex-direction: column;
+      @include border-default();
+      padding: 15px;
+      /*overflow-y: auto;*/
+      overflow: hidden;
+      .price_box {
+        display: flex;
+        margin-bottom: 5px;
+        margin-left: auto;
+        > div {
+          font-size: 1.2rem;
+          margin-right: 20px;
+          strong {
+            color: $base-color;
+          }
+        }
+      }
+    }
+    .estimate_box {//中央領域 > 明細領域
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      .resize {
+        min-width: 264px;
+        //height: 50% !important;
+        //margin-bottom: 30px;
+        //max-height: 75%;
+        .tree_box {
+          margin-right: 24px;
+          + div {//リサイズのバー領域
+            z-index: 100;
+            width: 24px;
+            right: 0;
+            > div {
+              width: 24px !important;
+              text-align: center;
+              right: 0px !important;
+            }
+          }
+        }
+      }
+      .tree_box {//中央領域 > 明細領域 > ツリー
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        /*overflow-y: hidden ;*/
+        .all {
+          font-size: 13px;
+          flex-grow: 1;
+          min-width: 240px;
+          /*min-height: 200px;*/
+          padding: 10px;
+          overflow-y: auto;
+          @include border-default();
+        }
+        .btn_box {
+          display: flex;
+          margin-top: 5px;
+          button {
+            min-height: auto;
+            & + button {
+              margin-left: 5px;
+            }
+            &:last-child {
+              flex-grow: 1;
+              max-width: 100px;
+              margin-left: auto;
+            }
+          }
+        }
+      }
+      .list_area {//中央領域 > 明細領域 > リスト
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        flex-grow: 1;
+        box-shadow: none;
+        overflow-y: hidden;
+        .inner {
+          @include border-default();
+          border-top: none;
+          /*min-height: 200px;*/
+          overflow-y: auto;
+          max-width: 100%;
+          flex-grow: 1;
+          .table_responsive {
+            border: none !important;
+            height: 100%;
+          }
+        }
+        .btn_box {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 5px;
+          margin-left: auto;
+          button {
+            min-height: auto;
+            & + button {
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+    .estimate_price_area {//下部領域
+      border-top: 1px solid $border_default_color;
+      padding: 15px 0 0;
+      .left {
+        width: 675px;
+      }
+      .right {
+        flex: 1;
+        //margin-left: auto;
+        .item_wrap {
+          .item_head {
+            min-width: 92px !important;
+          }
+        }
+      }
+      @include for_estimate_edit();
+      input {
+        width: 90px;
+      }
+    }
+  }
+  .EditMeisaiDialogPC {//見積明細作成ダイアログ
+    width: 400px;
+    .item_wrap {
+      .item_head,
+      .LeftLabelInputField-pc.item_box label {
+        min-width: 120px;
+      }
+    }
+  }
+}
+
+/*受注*/
+body.pc { 
+  .order_dialog {
+    .editPc_body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow-y: hidden !important;
+      .list_area {
+        flex-grow: 1;
+        overflow: hidden;
+        .inner {
+          height: 100%;
+          > div {
+            height: 100%;
+          }
+        }
+      }
+      .order_area {
+        margin-top: 15px;
+        //padding-top: 15px;
+        //border-top: 1px solid $border_default_color;
+        .item_wrap {
+          .item_box {
+            margin-right: 10px;
+          }
+          .item_head {
+            margin-right: 5px;
+            min-width: 90px;
+          }
+          .base_input {
+            width: 126px;
+          }
+          /*.btn_box {
+            margin-left: auto;
+            margin-right: 0;
+          }*/
+        }
+        .bottom {
+          display: flex;
+          justify-content: stretch;
+          .price_box {
+            @include border-default();
+            margin-right: 15px;
+            padding: 10px 10px 0px;
+            .item_head {
+              min-width: 80px;
+            }
+          }
+          .remarks_box {
+            flex-grow: 1;
+            .item_box {
+              flex-grow: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*メンテナンス*/
+body.pc { 
+  #maintenance {
+    //.search_area {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 120px;
+        }
+      }
+    //}
+  }
+  #maintenance {
+    .list_card {
+      > .important {
+        line-height: 30px;
+      }
+      .row1_col1 {
+        width: 288px;
+      }
+    }
+  }
+
+
+  .maintenance {
+    .editPc_body {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 130px !important;
+        }
+      }
+    }
+  }
+}
+
+/*ファイル*/
+body.pc {
+  #file {
+    //.search_area {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 110px;
+        }
+      }
+    //}
+  }
+}
+
+/*対応履歴*/
+body.pc { 
+  #support-history {
+    //.search_area {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 110px;
+        }
+      }
+    //}
+  }
+  .support_history {
+    .base_dialog_content > div .base_dialog_content_inner .editPc_wrap {
+      .editPc_body {
+        overflow-y: auto !important;
+      }
+    }
+    .editPc_body {
+      .item_wrap {
+        .item_head,
+        .LeftLabelInputField-pc.item_box label {
+          min-width: 120px !important;
+        }
+      }
+    }
+  }
+}
+
+/*CSV*/
+body.pc { 
+  #export_csv {
+    .inner {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .side_menu {
+        display: flex;
+        flex-direction: column;
+        @include box_shadow();
+        background-color: #FFF;
+        width: 200px;
+        margin-right: 15px;
+        overflow-y: auto;
+        label {
+          display: block;
+          color: $base-color;
+          padding: 5px 10px;
+          border-top: 2px solid /*$form_text_color*/$base-color;
+          //border-bottom: 2px solid $border_default_color;
+          background-color: $table_td_odd_color/*$base-color*/;
+          /*font-weight: bold;*/
+        }
+        button {
+          width: 100%;
+          text-align: left;
+          font-size: 14px;
+          border: none;
+          line-height: 34px;
+          padding: 0 10px 0 20px;
+          i {
+            font-size: 10px;
+            vertical-align: top;
+            margin-right: 10px;
+            line-height: 32px;
+          }
+          &:hover {
+            background-color: /*$base-color-thin*/$selectecd_color;
+            color: $base-color;
+          }
+          &.active {
+            background-color: $base-color/*$selectecd_color*/;
+            //color: $base-color;
+            color: #FFF;
+          }
+        }
+      }
+      .main_cnt {
+        flex: 1;
+        .search_area {
+          overflow: inherit;
+          #csv_customer {
+            .item_head { min-width: 140px;}
+          }
+          #csv_birthday {
+            .item_head { min-width: 100px;}
+          }
+          #csv_wedding {
+            .item_head { min-width: 100px;}
+          }
+          #csv_project {
+            .item_head { min-width: 100px;}
+          }
+          #csv_order {
+            .item_head { min-width: 100px;}
+          }
+          #csv_non_order {
+            .item_head { min-width: 120px;}
+          }
+          #csv_lost_order {
+            .item_head { min-width: 100px;}
+          }
+          #csv_maintenance {
+            .item_head { min-width: 100px;}
+          }
+          #csv_facility {
+            .item_head { min-width: 100px;}
+          }
+          #csv_customer_rank {
+            .item_head { min-width: 100px;}
+          }
+          #csv_support_history {
+            .item_head { min-width: 100px;}
+          }
+        }
+      }
+    }
+
+  }
+}
+
+/*マスター*/
+body.pc { 
+  #master {
+    .inner {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .side_menu {
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid /*$form_text_color*/$base-color;
+        @include box_shadow();
+        background-color: #FFF;
+        flex-basis: 200px;
+        margin-right: 15px;
+        overflow-y: auto;
+        button {
+          width: 100%;
+          text-align: left;
+          font-size: 13px;
+          border: none;
+          line-height: 34px;
+          padding: 0 10px 0 10px;
+          border-bottom: 1px solid $border_default_color;
+          i {
+            font-size: 10px;
+            vertical-align: top;
+            margin-right: 10px;
+            line-height: 32px;
+          }
+          &:hover {
+            background-color: $base-color-thin;
+            color: $base-color;
+          }
+          &.active {
+            background-color: $base-color;
+            color: #FFF;
+          }
+        }
+      }
+      .main_cnt {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        flex-grow: 1;
+        overflow: hidden;
+      }
+    }
+  }
+  .edit_pc_body_inner.edit_master {
+    .item_wrap {
+      .item_head,
+      .LeftLabelInputField-pc.item_box label {
+        min-width: 140px;
+      }
+      .password {
+        width: 380px;
+        label {
+          width: 120px;
+        }
+      }
+      .tax_rate {
+        .ui.input>input {
+          flex: inherit;
+        }
+      }
+      .comment {
+        width: 100%;
+      }
+    }
+    .frame {
+      padding: 15px;
+      &.bank_info {
+        padding: 15px 15px 5px 15px;
+        label.for_radio,
+        .LeftLabelInputField_pc__label {
+          width: 60px;
+        }
+      }
+    }
+    &.customer_expected_rank_master {//顧客見込みランク
+      .item_head {
+        width: 150px;
+      }
+    }
+    &.cusomer_rank_master {//顧客ランク（工事金額）名
+      .item_head {
+        width: 200px;
+      }
+    }
+    &.cusomer_rank_final_complete_date_master {//案件見込みランク名
+      .item_head {
+        width: 210px;
+      }
+    }
+    &.project_rank_master {
+      .item_head {
+        width: 150px;
+      }
+    }
+  }
+}
+
+/* 地図検索 */
+.searchMarkerWindow {
+  max-width: 300px;
+  line-height: 1.6em;
+  .google {
+    //width: 100px;
+    //height: 100px;
+    //background-color: $border_default_color;
+    img {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+    }
+  }
+  .text_box {
+    flex: 1;
+    position: relative;
+    .btn_box {
+      text-align: right;
+      button {
+        display: inline-block !important;
+        margin: 5px 0 0;
+      }
+    }
+  }
+  .address {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  .to_google {
+    font-size: 1.2em;
+    text-align: right;
+  }
+}
+
+/*プリント*/
+body.pc { 
+  .PrintPreview {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .preview_area {
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+  }
+}

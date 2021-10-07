@@ -1,0 +1,25 @@
+@import "../../../../../mixin.scss";
+@import "../../../../../App.scss";
+
+.maintenance_edit_sp {
+  .category_wrap {
+    .item_wrap {
+      /**
+       * 個別対応
+       */
+      .item_body {
+        &.maintenance_date {
+          .btn {
+            &:active,
+            &:hover {
+              background-color: $base_color !important;
+              color: #fff !important;
+              box-shadow: 0 0 0 1px transparent inset,
+                0 0 0 0 rgba($color: $base_color, $alpha: 0.15) inset !important;
+            }
+          }
+        }
+      } //.item_body
+    } //.item_wrap
+  } //.category_wrap
+} // customerEditSP

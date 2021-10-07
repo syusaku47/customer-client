@@ -1,0 +1,26 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+@import "../../../../setting.scss";
+
+.customer_card {
+  .thumb {
+    //display: none !important;
+  }
+}
+
+/* TODO あとで消す*/
+.rect_A {
+  background-color: #d06d8c !important;
+}
+.rect_B {
+  background-color: #b8b2d6 !important;
+}
+.rect_C {
+  background-color: #6bb6bb !important;
+}
+.rect_D {
+  background-color: #f9a743 !important;
+}
+.rect_F {
+  background-color: #f0675f !important;
+}

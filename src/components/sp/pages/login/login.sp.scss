@@ -1,0 +1,58 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.loginSP {
+  height: 100%;
+  &__logo {
+    padding-top: 13vh;
+    > span {
+      display: block;
+      width: 242px;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+      margin: auto;
+      background-color: $base_color;
+      color: $font-white;
+      font-weight: bold;
+      font-size: 27px;
+    }
+  }
+  &__body {
+    &__inner {
+      width: 80%;
+      margin: auto;
+      padding: 20px 0;
+
+      > .error_wrap {
+        margin-top: 10px;
+        word-break: break-all;
+        color: red;
+      }
+
+      &__input-field {
+        margin-top: 22px;
+        .input {
+          width: 100%;
+        }
+      }
+
+      &__checkbox {
+        width: 184px;
+        margin: 40px auto 0;
+      }
+      &__pass-forget {
+        margin-top: 30px;
+        text-align: center;
+      }
+      &__login-btn {
+        margin-top: 30px;
+        text-align: center;
+        .button {
+          width: 130px;
+          height: 35px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+[見積(リスト)]
+見積検索
+項目
+└ 受注フラグ
+└ 見積番号
+└ 見積日
+└ 現場名称
+└ 案件名
+└ 案件担当者
+└ 見積作成者
+└ 見積金額
+└ 消費税額
+└ 税込合計見積
+└ 原価合計
+└ 消費税額
+└ 税込合計原価
+└ 調整額
+└ 受注工期_開始
+└ 受注工期_終了
+Button 見積新規作成
+Button 見積書印刷
+　　　 Enabled 　 : Row Active
+Button 見積書印刷(社内用)
+　　　 Enabled 　 : Row Active
+Button 請求書印刷(簡易版)
+　　　 Enabled 　 : Row Active
+Button 請求書印刷(明細付)
+　　　 Enabled 　 : Row Active
+Button 請求登録
+　　　 Enabled 　 : Row Active
+Button 戻る
+--
+見積検索
+==>見積検索
+Click:見積書印刷
+==>印刷
+Click:見積書印刷(社内用)
+==>印刷
+Click:請求書印刷(簡易版)
+==>印刷
+Click:請求書印刷(明細付)
+==>印刷
+Click:請求登録
+==>請求新規登録/編集
+
+[見積検索]
+Selectには「全て」を追加
+ ----------
+Input　現場名称
+Input　案件名
+Select 営業担当(店舗) <初期表示ログイン者の店舗>
+Select 営業担当(担当者) <初期表示ログイン者>
+Select 見積作成者
+Button 検索
+
+
+
+[見積新規登録/編集]
+下計算部分はonBlur時自動計算
+ ----------
+登録 & キャンセル: 新規。未受注。
+閉じる: 受注登録後、完工
+　　　　(契約日 && 契約No && 最終見積フラグ) || !操作フラグ
+受注変更 & 閉じる: 受注登録後、未完工
+　　　　　　　　　 !完工日 && !end_dt && 最終見積フラグ && 操作フラグ
+ ----------
+案件検索
+└ 未契約
+└ 未完工
+└ CheckBoxはDisabled
+ ----------
+Input　現場名称
+　　　 Enabled 　 : False
+Input　案件名
+　　　 Enabled 　 : False
+　　　 Validation : 60文字まで
+Button 案件参照
+Input　案件名
+　　　 Enabled 　 : False
+Date　 *見積日付 <初期表示:当日から1週間後>
+Input　見積番号
+　　　 Enabled 　 : False
+Date　 *工期(最小値)
+Date　 *工期(最大値)
+Input　日間 <工期と相互計算>
+Date　 *見積有効期限 <初期表示:当日から1ヶ月後>
+Date　 *発注予定日 <初期表示:当日から1ヶ月後>
+Text　 備考
+　　　 Validation : 500文字まで
+ ----------
+見積明細(ツリー)
+見積明細(リスト)
+ ----------
+Input　見積金額 <明細リスト内の金額の合計値>
+　　　 Enabled 　 : False
+Input　見積合計 <見積金額＋現場協力費（見積）＋予備原価（見積）>
+　　　 Enabled 　 : False
+Input　消費税額 <見積合計×消費税％（見積日付によって消費税変更※消費税マスタ参照>
+　　　 Enabled 　 : False
+Input　税込合計見積金額 <見積金額＋現場協力費（見積）＋予備原価（見積）＋消費税額>
+　　　 Enabled 　 : False
+Input　調整金額(値引き) 
+Input　原価金額 <明細リスト内の原価金額の合計値>
+　　　 Enabled 　 : False
+Input　原価合計 <原価金額＋現場協力費（原価）＋予備原価（原価）>
+　　　 Enabled 　 : False
+Input　消費税額 <原価合計×消費税％（見積日付によって消費税変更※消費税マスタ参照>
+　　　 Enabled 　 : False
+Input　税込合計原価金額 <原価金額＋現場協力費（原価）＋予備原価（原価）＋消費税額>
+　　　 Enabled 　 : False
+Input　粗利金額 <見積合計金額 - 原価合計金額>
+　　　 Enabled 　 : False
+Input　粗利率 <((見積金額 - 原価金額) ÷ 見積金額 ) × 100>
+　　　 Enabled 　 : False
+Input　現場協力費(見積) <見積金額 × 現場協力費%>
+　　　 Enabled 　 : False
+Input　現場協力費(見積)% 
+Input　現場協力費(原価) <原価金額 × 現場協力費%>
+　　　 Enabled 　 : False
+Input　現場協力費(原価)% 
+Input　予備原価(見積) <見積金額 × 予備原価%>
+　　　 Enabled 　 : False
+Input　予備原価(見積)% 
+Input　予備原価(原価) <見積金額 × 予備原価%>
+　　　 Enabled 　 : False
+Input　予備原価(原価)% 
+ ----------
+Button 過去見積から明細コピー
+Button 登録
+Button 閉じる
+--
+Click:過去見積もりから明細コピー
+==>過去見積から明細コピー
+Click:登録(Success)
+==>見積新規登録/編集(Success)
+Click:登録(Failure)
+==>見積新規登録/編集(Failure)
+
+
+[見積新規登録/編集(Success)]
+見積情報を保存しました
+
+
+
+[見積新規登録/編集(Failure)]
+未/誤入力 || 明細無し : 未入力／入力不備項目があります
+
+
+
+
+[見積詳細]
+見積編集
+Button 戻る
+--
+見積編集
+==>見積新規登録/編集
+
+
+
+
+[過去見積から明細コピー]
+
+
+
+
+[見積明細(ツリー)]
+全て %
+└ 大分類 %
+　 └ 中分類 %
+ ----------
+ 移動▲ <単一選択>
+　　　 Enabled 　 : Row Active
+ 移動▼ <単一選択>
+　　　 Enabled 　 : Row Active
+ 印刷名称変更
+　　　 Enabled 　 : Row Active
+ --
+ Click:印刷名称変更
+ ==>印刷名称変更
+
+[印刷名称変更]
+<Dialog>ダイアログ</Dialog>
+表示名
+印刷名
+Button 登録
+--
+Click:登録(Success)
+==>印刷名称変更(Success)
+
+[印刷名称変更(Success)]
+明細XMLの印刷名称が変わる
+
+
+[見積明細(リスト)]
+見積金額合計
+原価金額合計
+粗利額
+粗利率
+項目
+└ 工事・部材名称
+└ 印刷名称
+└ Input 規格
+└ Input 数量
+└ 単位
+└ 見積単価
+└ 金額
+└ 原価
+└ 原価金額
+└ 粗利金額
+└ 粗利率
+└ Input 備考
+Button 移動▲ <分類内複数選択>
+　　　 Enabled 　 : Row Active
+Button 移動▼ <分類内複数選択>
+　　　 Enabled 　 : Row Active
+Button 印刷名称変更 
+　　　 Enabled 　 : Row 1 Active
+Button 直接登録 
+Button マスタから登録 
+Button 編集
+　　　 Enabled 　 : Row 1 Active
+Button 削除 <複数選択>
+　　　 Enabled 　 : Row Active
+ --
+ Click:印刷名称変更
+ ==>印刷名称変更
+ DbClick:Table Row
+ ==>見積明細新規登録/編集
+ DbClick:編集
+ ==>見積明細新規登録/編集
+
+
+[見積明細新規登録/編集]
+Input　商品区分
+Select ＊大分類
+Select ＊中分類
+Input　＊工事・資材名
+└ 新規登録時 Input
+└ 編集時 Select
+　　　 Validation : 最大文字数半角255文字(全角85文字)
+Input　規格
+　　　 Validation : 最大文字数半角255文字(全角85文字)
+Input　数量 <初期値0>
+└ Validation : 
+　 maxValue="99999999.99"
+　 negativeError="最小値未満です：最小値0.00" 
+　 invalidFormatCharsError="不正な区切り文字があります：区切り文字「.」"
+
+Select ＊単位
+Input　見積単価 <初期値0>
+Input　原価 <初期値0>
+Button 登録
+--
+Click:登録(Success)
+==>見積明細新規登録/編集(Success)
+Click:登録(Failure)
+==>見積明細新規登録/編集(Failure)
+
+[見積明細新規登録/編集(Success)]
+明細が追加・または更新される
+
+
+[見積明細新規登録/編集(Failure)]
+未・誤入力:未入力／入力不備項目があります

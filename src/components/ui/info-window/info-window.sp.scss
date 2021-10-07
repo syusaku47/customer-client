@@ -1,0 +1,158 @@
+@import "../../../mixin.scss";
+@import "../../../App";
+
+body.sp {
+  .info_window {
+    $arrow_btn_height: 2.5rem;
+    width: 100%;
+    position: fixed;
+    bottom: #{$env-inset-bottom};
+    z-index: 20;
+    background-color: #fff;
+    &.in_dialog {
+      position: absolute;
+      bottom: 0;
+    }
+
+    &_arrow_btn {
+      background-color: $base_color;
+      color: $font-white;
+      text-align: center;
+      height: $arrow_btn_height;
+      font-size: 1.5rem;
+      line-height: $arrow_btn_height;
+    }
+
+    &_close_btn {
+      @include radius(0);
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $base-color;
+      width: $arrow_btn_height;
+      height: $arrow_btn_height;
+      padding-left: 1px !important;
+      min-width: auto !important;
+      min-height: auto !important;
+      background-color: #fff;
+      font-size: 1.5rem;
+    }
+    &_info {
+      @include flex_box();
+      @include flex_direction_column();
+      background-color: #fff;
+      flex-direction: column;
+      padding: 0.75rem 0.75rem 0;
+
+      &_row {
+        @include flex_box();
+      }
+
+      &_col {
+        @include flex_box();
+        @include flex_direction_column();
+      }
+
+      .row1 {
+        @include scroll_display_none();
+        $col2_width: 6em;
+        flex: 1;
+        max-height: 48vh;
+        overflow-y: scroll;
+
+        &_col1 {
+          flex: 1;
+          .important {
+            font-size: 1rem;
+          }
+
+          .row_table_style {
+            margin-top: 0.25rem;
+            .t_row {
+              .t_header {
+                width: 31vw;
+                max-width: 8em;
+              }
+              .t_body {
+                .btn {
+                  height: 42px;
+                  .icon_button__icon {
+                    font-size: 1.5rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &_col2 {
+          @include flex_box();
+          @include flex_direction_column();
+          width: $col2_width;
+          margin-left: 0.25rem;
+
+          > * {
+            margin-top: 0.25rem;
+          }
+
+          .thumb {
+            width: $col2_width;
+            height: $col2_width;
+            text-align: center;
+            margin-top: 0;
+          }
+        }
+      }
+
+      .row2 {
+        @include flex_box();
+        @include flex_content_center();
+        margin-top: 1rem;
+        .btn {
+          width: 50%;
+          + .btn {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      /* ===================== 簡易表示 ===================== */
+      &.simple {
+        .row1 {
+          &_col1 {
+            .t_header {
+              width: 6em !important;
+              @include mq_max(xs) {
+                width: 5em !important;
+              }
+            }
+          }
+        }
+      }
+
+      /* ===================== 詳細表示 ===================== */
+      &.detail {
+      }
+    } // info_window_info
+
+    &_footer {
+      @include flex_box();
+      padding: 0.5rem;
+      background-color: #ffffff;
+      > .btn {
+        width: 100%;
+        margin: 0 0.25rem;
+        height: 2rem;
+        padding: 0 !important;
+        font-size: 0.85rem;
+        &.icon_btn {
+          .fa-phone {
+            font-size: 1.8rem;
+          }
+          .fa-line {
+            font-size: 2.2rem;
+          }
+        }
+      }
+    }
+  }
+}

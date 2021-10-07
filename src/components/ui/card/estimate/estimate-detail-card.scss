@@ -1,0 +1,54 @@
+@import "../../../../App.scss";
+@import "../../../../mixin.scss";
+
+.estimate_detail_card_sp {
+  @include flex_box();
+  padding: 1rem 0;
+  font-size: 1rem;
+  .col1 {
+    @include flex_box();
+    @include flex_align_center();
+    @include flex_content_center();
+    width: 2em;
+    margin-right: 0.5rem;
+    color: red;
+  }
+
+  .col2 {
+    flex: 1;
+    word-break: break-all;
+    &__row1,
+    &__row2 {
+      @include flex_box();
+      @include flex_align_center();
+    }
+
+    &__row1 {
+      font-weight: bold;
+    }
+
+    &__row2 {
+      margin-right: 10px;
+      &__con1 {
+        flex: 1;
+      }
+      &__con2 {
+        flex: 1;
+        text-align: right;
+      }
+    }
+  }
+
+  .col3 {
+    @include flex_box();
+    @include flex_align_center();
+    @include flex_content_center();
+    width: 2em;
+    .angle_icon {
+      color: $base_color !important;
+      &::before {
+        border-width: 2px;
+      }
+    }
+  }
+}

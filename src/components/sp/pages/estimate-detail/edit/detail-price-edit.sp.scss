@@ -1,0 +1,81 @@
+@import "/src/mixin";
+
+.detail_price_edit_sp {
+  padding: 1rem;
+  .t_row {
+    .t_header {
+      min-width: 6em;
+      max-width: 6em !important;
+      @include mq_max(xs) {
+        // font-size: 0.8rem;
+      }
+    }
+
+    .t_body {
+      // flex: 1;
+      min-width: 0;
+      .base_input {
+        min-width: 0;
+        input {
+          text-align: right;
+        }
+      }
+    }
+
+    &.genba_support_price,
+    &.yobi_genka {
+      .t_body {
+        @include flex_box();
+        @include flex_direction_column();
+        @include mq_max(xs) {
+          overflow-x: scroll;
+        }
+        > div {
+          @include flex_box();
+          @include flex_align_center();
+          width: 100%;
+
+          + div {
+            margin-top: 5px;
+          }
+
+          > span {
+            &:first-of-type {
+              @include flex_box();
+              min-width: 2.5em;
+            }
+            &:last-of-type {
+              min-width: 1em;
+            }
+          }
+
+          > .base_input {
+            margin-right: 5px;
+            input {
+              padding-right: 5px;
+              padding-left: 5px;
+            }
+
+            &:first-of-type {
+              flex: 1;
+              min-width: 5.7rem;
+              max-width: 7rem;
+              .base_input {
+                width: auto;
+                input {
+                  display: block;
+                  width: auto;
+                }
+              }
+            }
+
+            &:last-of-type {
+              min-width: 2.7rem;
+              width: 2.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

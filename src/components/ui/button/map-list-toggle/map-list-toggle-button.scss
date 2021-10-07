@@ -1,0 +1,12 @@
+@import "../../../../mixin";
+
+.map_list_toggle_button {
+  @include flex_box();
+  width: 8em;
+  > div {
+    &:last-of-type {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

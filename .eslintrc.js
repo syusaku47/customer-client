@@ -1,0 +1,61 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true,
+  },
+  extends: ['plugin:react/recommended', 'airbnb'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint'],
+  rules: {
+    'react/no-danger': 'off',
+    'no-console': 'off',
+    'jsx-a11y/label-has-associated-control': 0,
+    'react/button-has-type': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/no-array-index-key': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-cycle': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'react/jsx-one-expression-per-line': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ],
+    'class-methods-use-this': 'off',
+    'max-classes-per-file': 'off',
+    'no-underscore-dangle': 'off',
+    'no-template-curly-in-string': 'off',
+    'no-restricted-syntax': 'off',
+    'no-await-in-loop': 'off',
+    'import/extensions': [
+      'error',
+      { extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'] },
+    ],
+    'react/prop-types': 'off',
+    'spaced-comment': ['error', 'always', { markers: ['/ <reference'] }],
+    'react/react-in-jsx-scope': 'off',
+    'linebreak-style': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'react/require-default-props': 'off',
+    camelcase: 'off',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
+};

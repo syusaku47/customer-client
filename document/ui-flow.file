@@ -1,0 +1,64 @@
+[ファイル(リスト)]
+ファイル検索
+リスト
+項目
+└ No
+└ ファイル名
+└ 形式
+└ サイズ
+└ アップロード日時
+└ 更新者
+└ 顧客名
+└ 案件名
+└ Button ダウンロード
+└ Button 削除
+└ 備考
+Button 新規登録
+Button 戻る
+--
+ファイル検索
+==>ファイル検索
+Click:Row(Active)
+==>ファイル(リスト)
+DbClick:Row(Active)
+=={編集}=>ファイル新規登録/編集
+Click:新規登録
+=={新規}=>ファイル新規登録/編集
+
+
+
+[ファイル検索]
+Input　顧客名
+Input　案件名
+Input　ファイル名
+Date　 アップロード日(最小値)
+Date　 アップロード日(最大値)
+Button 検索
+
+
+
+[ファイル新規登録/編集]
+Input　＊顧客名
+Button 顧客参照
+Button 地図から検索
+Input　案件名
+Button 案件参照
+Button 地図から検索
+Input　＊ファイル名
+Button ファイル選択
+Button ? <注意書き>
+Text 　コメント
+Button 登録 
+--
+Click:登録(Success)
+==>ファイル新規登録/編集Success
+Click:登録(Error)
+==>ファイル新規登録/編集Error
+
+[ファイル新規登録/編集Success]
+復帰処理
+新規: 一覧取得
+編集: 一覧取得
+
+[ファイル新規登録/編集Error]
+未・誤入力: 未入力/入力不備項目があります。

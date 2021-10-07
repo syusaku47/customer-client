@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+$font_color: #666666;
+$red_color: #ff0000;
+$base_color: #1451a1;
+$base_color_thin: #f3f6fa;
+$base_color_opacity_75: #4e7cb8;
+
+/* color */
+$error_text_color: #ff0000;
+$alert_color: #ff0000;
+$text_color: #4D4D4D;
+$comment_color: #777777;
+$bg_dark: #5f6368;
+
+$selectecd_color: #FFF9D9; //選択
+$invalid_color: #CCCCCC; //無効、削除
+
+/*border*/
+$border_default_color:#CCCCCC;
+$border_primary: $base_color;
+$border_secondary: #0000001a;
+
+$footer_color: #1451a1;
+
+/*form*/
+$form_border_color:#E2E2E2;
+$placeholder_color: #DDDDDD;
+$form_color: #E2E2E2;
+$form_text_color: #5F6368;
+$form_checkbox_border_color:#E2E2E2;
+$form_checkbox_background_color:#FFFFFF;
+$form_radio_color: #4D4D4D;
+$form_error_border_color: #ff0000;
+$form_error_bg_color: #fff6f6;
+$form_error_text_color: #9f3a38;
+
+/*radio*/
+$margin_bottom_default: 15px;
+$list_id_background_color:#5F6368;
+
+$hover-color: #dfe1e5;
+$font-primary: $base_color;
+$font-dark: #5f6368;
+$font-white: #ffffff;
+
+$emphasis_color1: #f56922;
+$emphasis_color2: #ebb521;
+$emphasis_color3: #de2a7b;
+$emphasis_color_blue: #0069B4;
+
+$background_color: #F4F3F2;
+$header_background_gray: #4D4D4D0D;
+
+/*button*/
+$btn_primary_background_color: $base_color;
+$btn_primary_color: #FFFFFF;
+
+$btn_secondary_background_color: #57B058;
+$btn_secondary_color: #FFFFFF;
+
+$btn_tertiary_background_color: $base_color;
+$btn_tertiary_color: #FFFFFF;
+
+$btn_dark_background_color: #5f6368;
+$btn_dark_color: #FFFFFF;
+
+/*table*/
+$table_color:#D1DDED;
+$table_thead_background_color:#F7F7F7;
+$table_thead_color:rgba(0,0,0,0.87);
+$table_thead_line_color :#3554844D;
+$table_selectecd_color :$selectecd_color;//選択
+$table_invalid_color :$invalid_color; //無効、削除
+
+
+
+
+/*$table_thead_color:#FFFFFF;*/
+$table_td_even_color:#FFFFFF;
+$table_td_odd_color:#F2F7FB;
+
+/*scrollbar*/
+$scrollbar_bg_color: #E0E0E0;
+$scrollbar_color: $base_color;
+
+/*hr*/
+$hr_color:rgba(0,0,0,0.03);
+
+$menu_background_gray: #4D4D4D0D;
+
+$detail_page_col2_width: 5rem;
+
+/**/
+$prospect_color: #d24444;/*見込み*/
+$ob_color: #09c;/*OB*/
+$uncontracted_color:#d24444;/*未契約*/
+$construction_color:#0a7b24;/*工事中*/
+$completion_color: #09c;/*完工*/
+$started_color:#d24444;/*未対応*/
+$completed_color: #09c;/*対応済*/
+
+

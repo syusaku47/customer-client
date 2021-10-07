@@ -1,0 +1,31 @@
+@import "../../../../mixin";
+
+body.sp {
+  .detail_page_footer {
+    &_col {
+      flex: 1;
+      &:first-of-type {
+        > .icon_button {
+          width: calc(100% / 3 - 10px) !important;
+          height: 100%;
+
+          @include mq_max(sm) {
+            width: calc(100% / 3 - 5px) !important;
+            &:not(:first-of-type) {
+              margin-left: 5px !important;
+            }
+          }
+        }
+      }
+
+      &:last-of-type {
+        > .btn {
+          width: calc(100% / 2) !important;
+          min-width: 6em;
+          margin-left: auto;
+          display: block;
+        }
+      }
+    }
+  }
+}

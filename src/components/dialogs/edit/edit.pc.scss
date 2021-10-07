@@ -1,0 +1,102 @@
+@import "../../../App.scss";
+@import "../../../mixin.scss";
+
+.detail {
+  .resize {
+    //height: 50% !important;
+    margin-bottom: 30px;
+    max-height: 75%;
+    .editPc_wrap {
+      + div {//リサイズのバー領域
+        z-index: 100;
+        height: 24px;
+        > div {
+          height: 24px !important;
+          bottom: -24px !important;
+        }
+      }
+    }
+  }
+  .editPc_wrap {
+    /*height: 50%;*/
+    /*margin-bottom: 15px;*/
+    .editPc_body {
+      @include box-shadow();
+    }
+  }  
+}
+
+.editPc_wrap {
+  height: 100%;
+  /*overflow-y: auto;*/
+  background: #FFF;
+
+  .editPc_body {
+    padding: 15px;
+    overflow-y: auto !important;
+    /*@include scroll_display_none();*/
+    // 汎用
+    &_inner {
+
+      @include mq_max(xs) {
+        .category_wrap {
+          padding: 20px 15px;
+        } // .category_wrap max320px
+      }
+
+      /* semantic 個別*/
+      .ui.segment {
+        box-shadow: none !important;
+        padding: 0.5rem !important;
+      }
+
+    } //.edit_Pc_body_inner
+
+    @include mq_max(xs) {
+      &_inner {
+        padding: 0 1rem !important;
+      }
+    }
+
+    .hidden_category {
+      display: none;
+    }
+
+    &.show_all {
+      .hidden_category {
+        display: block;
+        &.offset {
+        margin-top: 15px;
+        }
+      }
+    }
+    
+  } //.editPc_body
+
+  .show_switch {
+    width: 100%;
+    padding: 4px 0;
+    background-color: $base_color;
+    color: $font-white;
+    text-align: center;
+    &_inner {
+      >span {
+        margin: 10px;
+      }
+    }
+  }
+
+  .editPc_footer {
+    @include flex_box();
+    @include flex_align_center();
+    @include flex_content_center();
+    padding: 0.5em !important;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    .btn {
+      //height: 3rem;
+      width: 9rem;
+      margin: 0 5px;
+    }
+  } //.editPc_footer
+} //.editPc_wrap

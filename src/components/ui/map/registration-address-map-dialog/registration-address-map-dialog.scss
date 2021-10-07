@@ -1,0 +1,17 @@
+@import '../../../../App.scss';
+
+.registrationAddressMapDialog {
+  // * {
+  //   border-bottom-left-radius: .28571429rem;
+  //   border-bottom-right-radius: .28571429rem;
+  // }
+  .btn {
+    &.search-address {
+      width: 110px;
+      border: 1px solid $base_color;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+}

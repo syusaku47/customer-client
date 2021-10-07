@@ -1,0 +1,16 @@
+@import "../../../App";
+@import "../../../mixin";
+
+.show_image_dialog {
+  @include flex_box();
+  @include flex_align_center();
+  @include flex_content_center();
+  width: 100%;
+  height: calc(100vh / 2);
+  padding: 1rem;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

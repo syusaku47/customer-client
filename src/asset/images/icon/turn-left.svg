@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="tyrnLeft" transform="translate(-267.5 71.25) rotate(-90)">
+    <rect id="長方形_2421" data-name="長方形 2421" width="30" height="30" transform="translate(71.25 267.5) rotate(90)" fill="none" opacity="0.3"/>
+    <rect id="長方形_2343" data-name="長方形 2343" width="3" height="9" transform="translate(60 277.75)" fill="#707070"/>
+    <g id="多角形_58" data-name="多角形 58" transform="translate(58 271.75)" fill="#707070">
+      <path d="M 6.235490798950195 7.5 L 0.764509379863739 7.5 L 3.5 1.247449994087219 L 6.235490798950195 7.5 Z" stroke="none"/>
+      <path d="M 3.5 2.494900226593018 L 1.529018878936768 7 L 5.470981121063232 7 L 3.5 2.494900226593018 M 3.5 0 L 7 8 L 0 8 L 3.5 0 Z" stroke="none" fill="#707070"/>
+    </g>
+    <rect id="長方形_2344" data-name="長方形 2344" width="3" height="15.5" transform="translate(63 286.25) rotate(90)" fill="#707070"/>
+  </g>
+</svg>

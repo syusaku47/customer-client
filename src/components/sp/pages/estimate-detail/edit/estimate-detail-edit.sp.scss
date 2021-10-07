@@ -1,0 +1,12 @@
+@import "../../../../../App.scss";
+@import "../../../../../mixin.scss";
+
+.estimate_detail_edit_sp {
+  .item_label {
+    &.separate {
+      @include flex_box();
+      @include flex_space_between();
+      @include flex_align_center();
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../../../../setting";
+.tree_box {
+  .tree_item {
+    cursor: pointer;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 2px 5px;
+    i {
+      margin-right: 5px;
+    }
+    &.is_select{
+      color: $base-color;
+      font-weight: bold;
+      background-color: $selectecd_color;
+    }
+  }
+  .daibunrui,
+  .chubunrui_wrap {
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+}

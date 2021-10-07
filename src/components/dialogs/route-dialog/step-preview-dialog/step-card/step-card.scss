@@ -1,0 +1,49 @@
+@import "/src/mixin";
+
+.step_card {
+  &.sp,
+  &.pc {
+    .step_card__row {
+      @include flex_box();
+      @include flex_align_center();
+
+      &__left {
+        text-align: center;
+      }
+
+      &__right {
+        flex: 1;
+
+        &.border {
+          position: relative;
+          &::before {
+            @include pseudo_hor_border(1px, 100%, $border_default_color);
+          }
+        }
+      }
+    }
+  }
+
+  &.sp {
+    .step_card__row {
+      &__left {
+        min-width: 4em;
+        width: 4em;
+      }
+    }
+  }
+
+  &.pc {
+    .step_card__row {
+
+      &__left {
+        min-width: 3.5em;
+        width: 3.5em;
+      }
+
+      &__middle {
+        margin-right: 0.5em;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@import "../../../../mixin.scss";
+@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
+
+body.pc{
+.btn.primary.project_all,
+.btn.primary.project_uncontracted,//未契約
+.btn.primary.project_construction,//工事中
+.btn.primary.project_completion,//完工
+.btn.primary.edit {
+    position: relative;
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        content: '';
+        opacity: 0.3;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    &.active,
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.btn.primary.project_uncontracted {//未契約
+    background-color: $uncontracted_color;
+    border-color: $uncontracted_color !important;
+    &::after {
+        width: 30px;
+        height: 34px;
+        background-image: url("../../../../asset/images/icon_project_uncontracted.svg") ;
+    }
+    &.active,
+    &:hover {
+        color: $uncontracted_color !important;
+        &::after {
+            background-image: url("../../../../asset/images/icon_project_uncontracted_color.svg") ;
+        }
+    }
+}
+.btn.primary.project_construction {//工事中
+    background-color: $construction_color;
+    border-color: $construction_color !important;
+    &::after {
+        width: 34px;
+        height: 34px;
+        background-image: url("../../../../asset/images/icon_project_construction.svg") ;
+    }
+    &.active,
+    &:hover {
+        color: $construction_color !important;
+        &::after {
+            background-image: url("../../../../asset/images/icon_project_construction_color.svg") ;
+        }
+    }
+}
+.btn.primary.project_completion {//完工
+    background-color: $completion_color;
+    border-color: $completion_color !important;
+    &::after {
+        width: 38px;
+        height: 34px;
+        background-image: url("../../../../asset/images/icon_project_ob.svg") ;
+    }
+    &.active,
+    &:hover {
+        color: $completion_color !important;
+        &::after {
+            background-image: url("../../../../asset/images/icon_project_ob_color.svg") ;
+        }
+    }
+}
+
+.btn.primary.edit {
+    max-width: 110px;
+    padding-left: 40px !important;
+    &::after {
+        font-family:"Font Awesome 5 Free";
+        content: '\f044';
+        font-weight: 200;
+        color: #FFF;
+        font-size: 20px;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        opacity: 1;
+        left: 0;
+        transform: translate(0%, -50%);
+    }
+    &:hover {
+        &::after {
+            color: $base-color;
+        }
+    }
+}
+}

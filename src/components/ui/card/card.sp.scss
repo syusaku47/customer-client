@@ -1,0 +1,76 @@
+.card_base.sp {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  color: $text_color;
+
+  /* 顧客・案件 */
+  &.customer_card,
+  &.project_card,
+  &.maintenance_card {
+    .card_base_row__col_right {
+      /* 320px以下 */
+      @include mq_max(sm) {
+        // @include mq_max(xs) {
+        width: 4.5rem;
+        .show_type_label,
+        .rect_label {
+          font-size: 0.8rem;
+        }
+      }
+      /* iPad以上 */
+      @include mq_min() {
+        display: block;
+        flex-direction: row;
+        min-width: 10rem;
+        > div {
+          display: inline-block;
+          &:first-of-type {
+            width: 5rem;
+            margin-bottom: 0 !important;
+          }
+          + div {
+            margin-left: 5px;
+            width: 6rem;
+            > * {
+              height: calc((5rem - 5px) / 2);
+            }
+          }
+        }
+      }
+
+      .rect_label {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  &_col {
+    @include flex_box();
+    @include flex_direction_column();
+  }
+
+  &.is_select {
+    background-color: $selectecd_color;
+  }
+
+  .important {
+    font-size: 1.1em;
+    color: $base-color;
+    font-weight: bold;
+  }
+  .emphasis {
+    color: $base-color;
+  }
+
+  /* 電話番号 */
+  .tel_no {
+    min-width: 10em;
+  }
+
+  /* 担当者 */
+  .sales_contact {
+    color: $emphasis_color_blue;
+  }
+} // card_base

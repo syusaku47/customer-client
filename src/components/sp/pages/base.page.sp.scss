@@ -1,0 +1,311 @@
+@import "../../../App.scss";
+@import "../../../setting";
+@import "../../../mixin";
+@import "../../ui/card/card.sp.scss";
+
+body.sp {
+  .App {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    > header {
+    }
+
+    .base_page_sp {
+      height: 100%;
+      @include flex_box();
+      @include flex_direction_column();
+      &_body {
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        @include flex_box();
+        @include flex_direction_column();
+
+        /* ================ 地図 <-> リスト用 (一覧のみも可) ================ */
+        .map_list_header {
+          @include flex_box();
+          padding: 0.5rem 0;
+          position: relative;
+
+          &#customer_sp_header {
+          }
+
+          &#estimate_sp_header,
+          &.file_sp__header,
+          &.support_history_sp__header {
+            padding: 0.5rem;
+            span {
+              padding: 1em;
+              width: 100%;
+              background-color: $header_background_gray;
+              font-weight: bold;
+            }
+
+            &::after {
+              height: 0;
+            }
+          }
+
+          // &.support_history_sp__header {
+          //   padding: 0.5rem !important;
+
+          //   &::after {
+          //     height: 0 !important;
+          //   }
+
+          //   span {
+          //     width: 100%;
+          //     padding: 0.5rem;
+          //     background-color: $base_color;
+          //     color: #fff;
+          //     font-weight: bold;
+          //     font-size: 1rem !important;
+          //     line-height: 1.5em !important;
+          //   }
+          // }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background-color: $border_secondary;
+            transform: scale(0.9);
+          }
+
+          .bottom_border_button {
+            flex: 1;
+            margin-left: 5px;
+            &:last-of-type {
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .map_list_body {
+          flex: 1;
+          overflow-y: scroll;
+          position: relative;
+          @include scroll_display_none();
+        }
+
+        /* ================ 地図 <-> リスト用 ================ */
+
+        /* ================ 詳細画面用 ================ */
+        .detail_wrap {
+          @include flex_box();
+          @include flex_direction_column();
+          height: 100%;
+          font-size: 1rem;
+
+          .detail_header {
+            padding: 0.5rem 0.5rem 0;
+            background-color: #fff;
+            &_inner {
+              display: flex !important;
+              // @include flex_space_between();
+              @include flex_align_center();
+              display: block;
+              height: 3em;
+              padding: 0 0.5em;
+              background-color: $header_background_gray;
+              font-weight: bold;
+
+              &__back_btn {
+                margin-right: 0.5rem;
+                color: $btn_dark_background_color;
+                font-size: 1.5rem;
+              }
+
+              &__label {
+                @include ellipsis();
+                flex: 1;
+              }
+            }
+
+            &_buttons {
+              @include flex_box();
+              margin-top: 0.25rem;
+              .btn {
+                flex: 1;
+                font-size: 1rem;
+                &:not(:first-of-type) {
+                  margin-left: 0.5rem;
+                }
+              }
+            }
+          }
+
+          .detail_body {
+            flex: 1;
+            padding: 0.25rem 0;
+            overflow: hidden;
+            position: relative;
+
+            .list_base {
+              border-top: none;
+              width: 100%;
+            } // list_base
+
+            > div {
+              height: 100%;
+              @include flex_box();
+              @include flex_direction_column();
+
+              > .ui {
+                &.menu {
+                  @include scroll_display_none();
+                  overflow-x: scroll;
+                  margin-bottom: 0.25rem;
+                  padding: 0 0.5rem;
+                  > a {
+                    min-width: calc(100% / 5 - 0.25em);
+                  }
+                }
+                &.attached:not(.message) + .ui.attached.segment:not(.top) {
+                  padding: 0 !important;
+                }
+              }
+            }
+          }
+
+          /* 個別 */
+          .maintenance_detail_sp__body,
+          .file_detail_sp__body,
+          .support_history_detail_sp__body {
+            padding: 0.5rem;
+            &__table {
+              @include scroll_display_none();
+              flex: 1;
+              overflow-y: scroll;
+
+              .col_2 {
+                @include flex_box();
+                > div {
+                  &:first-of-type {
+                    flex: 1;
+                  }
+                  &:last-of-type {
+                    width: $detail_page_col2_width;
+                  }
+                }
+
+                + .col_2 {
+                  margin-top: 0.5rem;
+                }
+              }
+            }
+          }
+        }
+        /* ================ 詳細画面用 ================ */
+
+        .page_body_footer {
+          @include flex_box();
+          padding: 0.5rem;
+          background-color: #ffffff;
+          .btn {
+            width: 100%;
+            + .btn {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+      .btn {
+        &.search-address {
+          border: 1px solid $base-color;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+      }
+
+      &_footer {
+        background-color: $footer_color;
+        color: #fff;
+        text-align: center;
+        font-size: 0.5rem;
+      }
+    } // base_page_sp_body
+  }
+
+  input,
+  textarea {
+    font-size: 16px !important;
+    appearance: none;
+    resize: none;
+  }
+
+  /* リスト */
+  .list_base {
+    // max-width: 46rem;
+    height: 100%;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+
+    /* 個別 */
+    &#detail_estimate_list {
+      width: 100%;
+    }
+    &.family_info_list_sp {
+      padding: 0;
+    }
+
+    &_card_wrap {
+      border-bottom: 1px solid $border_secondary;
+    }
+  } // list_base
+}
+
+.searchMarkerWindow {
+  &.sp {
+    line-height: 1.4em;
+    font-size: 0.75rem;
+    width: 96% !important;
+    .google {
+      img {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+    }
+
+    .text_box {
+      .btn_box {
+        text-align: left;
+        button {
+          display: inline-block !important;
+          margin: 5px 0 10px;
+        }
+      }
+
+      .address {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+      .to_google {
+        font-size: 1.2em;
+        text-align: left;
+      }
+    }
+  }
+}
+
+/*google mapの表示切替のプルダウン*/
+body.sp {
+  .gmnoprint.gm-style-mtc {
+    button {
+      width: 100%;
+    }
+  }
+  .googlg_map_search {
+    .ui.input {
+      width: 100%;
+    }
+  }
+}

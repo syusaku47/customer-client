@@ -1,0 +1,497 @@
+@charset "utf-8";
+@import "./setting.scss";
+
+@mixin fontFamily() {
+  font-family: "メイリオ", "Meiryo", "Hiragino Sans", "ヒラギノ角ゴ Pro W4",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif !important;
+}
+
+@mixin radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin radiusDetails($radius1, $radius2, $radius3, $radius4) {
+  -webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+  border-radius: $radius1 $radius2 $radius3 $radius4;
+}
+
+@mixin border-default($size: 1px, $color: $border_default_color) {
+  border: $size solid $color !important;
+}
+
+@mixin animationSlow() {
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+@mixin hoverOpa() {
+  opacity: 0.6;
+  @include animationSlow();
+}
+
+@mixin SPHoverOpa() {
+  opacity: 1 !important;
+}
+
+@mixin box_shadow() {
+  box-shadow: 0px 3px 6px #00000033;
+}
+
+@mixin box_shadow_inset($x: 0, $y: 0, $blur: 0, $spread: 4px, $rgba:rgba(20,81,161,0.2)) {
+  box-shadow: $x $y $blur $spread $rgba inset;
+}
+
+//テキスト選択無効
+@mixin selectDisabled() {
+  -ms-user-select: none; /* IE 10+ */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+//背景の上に表示するabsoluteの要素用
+@mixin ElementOnBG() {
+  z-index: 1000;
+}
+
+//汎用input[type="text"]
+@mixin inputText() {
+  color: #4b4b4b;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 12px;
+  height: 25px;
+  text-align: left;
+  padding: 5px;
+}
+
+@mixin flex_box() {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin flex_align_start() {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+@mixin flex_align_stretch() {
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+@mixin flex_align_center() {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@mixin flex_align_end() {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+@mixin flex_space_between() {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+@mixin flex_content_center() {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+@mixin flex_content_end() {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -ms-flex-pack: end;
+}
+@mixin flex_content_around() {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: distribute;
+}
+@mixin flex_container_wrap() {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+@mixin flex_direction_column() {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+@mixin flex_all_center() {
+  @include flex_box();
+  @include flex_align_center();
+  @include flex_content_center();
+}
+
+//3点リーダー
+@mixin longTextEllipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//ドラッグ禁止
+@mixin dontDrag() {
+  -webkit-user-drag: none;
+}
+
+// btn
+@mixin btnStyle1($color: #999999) {
+  border: 1px solid $color;
+  color: #ffffff;
+  background-color: $color;
+  min-width: 100px;
+  min-height: 40px;
+  font-size: 18px;
+
+  &:hover {
+    color: $color;
+    background-color: #ffffff;
+  }
+}
+
+@mixin btnStyle2(
+  $bgColor: #999999,
+  $shdColor: #555555,
+  $radius: 4px,
+  $shadowRange: 3px
+) {
+  border: 1px solid $bgColor;
+  border-radius: $radius;
+  color: #ffffff;
+  background-color: $bgColor;
+  min-width: 100px;
+  min-height: 40px;
+  font-size: 18px;
+  box-shadow: $shadowRange $shadowRange $shdColor;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+@mixin btn_tips() {
+  width: 30px;
+  height: 30px;
+  min-width: inherit;
+  min-height: inherit;
+  padding: 0 !important;
+  line-height: 0;
+  background-color: inherit;
+  color: $btn_secondary_background_color;
+  &:hover {
+    background-color: inherit !important;
+    color: $btn_secondary_background_color !important;
+    opacity: 0.75;
+  }
+}
+
+$breakpoints-min: (
+  "sm": "screen and (min-width: 479px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 991px)",
+  "xl": "screen and (min-width: 1199px)",
+) !default;
+
+$breakpoints-max: (
+  "xs": "screen and (max-width: 320px)",
+  "sm": "screen and (max-width: 479px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 991px)",
+  "xl": "screen and (max-width: 1199px)",
+) !default;
+
+@mixin mq_min($breakpoint: md) {
+  @media #{map-get($breakpoints-min, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq_max($breakpoint: md) {
+  @media #{map-get($breakpoints-max, $breakpoint)} {
+    @content;
+  }
+}
+
+/* scroll 非表示 */
+@mixin scroll_display_none {
+  -ms-overflow-style: none; /* scroll 非表示 IE, Edge 対応 */
+  scrollbar-width: none; /* scroll 非表示 Firefox 対応 */
+  &::-webkit-scrollbar {
+    display: none; /* scroll 非表示 chrome, safari */
+  }
+}
+
+@mixin bottom_border_box($on_color: $base_color, $off_color: $border_secondary) {
+  @include flex_box();
+  @include flex_align_center();
+  @include flex_content_center();
+  font-size: 1rem;
+  border-bottom: 2px solid $off_color;
+  position: relative;
+  width: 6em;
+  padding: 0.5em;
+  user-select: none;
+
+  &::after {
+    background-color: $on_color;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+  }
+
+  /* アニメーションにしたい場合、要クラス名付与 */
+  &.animation {
+    &:after {
+      // transition: all 0.2s ease;
+      // -webkit-transition: all 0.2s ease;
+    }
+  }
+
+  /* 選択中用セレクタ 要クラス名付与 */
+  &.selected {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@mixin l_solid_r_flex($solid_width: 4em) {
+  @include flex_box();
+  div {
+    &:first-of-type {
+      width: $solid_width;
+    }
+    &:last-of-type {
+      flex: 1;
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+/* 擬似要素用ボーダー */
+@mixin pseudo_hor_border($height: 1px, $width: 100%, $color: $border_secondary) {
+  content: "";
+  display: block;
+  height: $height;
+  width: $width;
+  background-color: $color;
+  position: absolute;
+  left: 0;
+  /* 上下は個別で */
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin map_search_box {
+  .map_search_box {
+    @include radius(0);
+    @include box_shadow();
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    min-width: 400px;
+    background-color: #FFF;
+    /*padding: 5px 5px 0 5px;*/
+    .item_wrap {
+      .item_box {
+        flex-grow: 1;
+        margin: 0;
+        label {
+          @include radius(0);
+          background-color: $btn_secondary_background_color;
+          color: #FFF;
+          height: 40px;
+          line-height: 40px;
+          margin-right: 5px;
+          padding: 0 10px;
+        }
+      }
+      .base_input {
+        flex-grow: 1;
+        padding: 5px 0;
+        margin-left: 5px;
+        min-width: 240px;
+      }
+      .btn {
+        min-height: 30px !important;
+        margin: 5px;
+      }
+      .root_btn_box {
+        display: flex;
+        border-left: 1px dotted $border_default_color;
+      }
+    } 
+  }
+}
+@mixin card {
+.card {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  background-color: #FFF;
+  padding: 15px;
+  min-width: 350px;
+  //@include box-shadow();
+  box-shadow: 0px 0px 6px #00000033;
+  > div {
+    /*line-height: 26px;*/
+    line-height: 30px;
+    font-size: 16px;
+  }
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: $base-color;
+    line-height: 30px;
+    margin-bottom: 5px;
+    padding-right: 15px;
+    span {
+      font-size: 16px;
+    }
+  }
+  .sub_name {
+    font-size: 16px;
+    color: $base-color;
+    /*line-height: 20px;*/
+    > i {
+      color: $base-color !important;
+    }
+  }
+  .address_box {
+    display: flex;
+    flex-direction: row;
+    > div {
+      flex-grow: 1;
+    }
+  }
+  .address {
+  }
+  .sub_name,
+  .address_box,
+  .tell,
+  .mail_address,
+  .sales_contact {
+    > i {
+      font-size: 20px;
+      vertical-align: middle;
+      color: $font_color;
+      margin-right: 5px;
+      width: 20px;
+      text-align: center;
+      line-height: 30px;
+    }
+  }
+  .sub_name,
+  .post_no,
+  .mail_address {
+    display: flex;
+    align-items:center;
+    span {
+      margin-right: 5px;
+    }
+    button {
+      min-width: auto !important;
+      width: 26px;
+      height: 26px;
+      min-height: 26px!important;
+      padding: 0;
+      vertical-align: bottom;
+      margin-left: auto/* 10px*/;
+      font-size: 12px;
+    }
+  }
+  .card_base_row {
+    display: flex;
+    width: 100%;
+    .col {
+      flex:1;
+      margin-right: 10px;
+    }
+    .label_box {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  .show_type_label {//タイプラベル
+    /*@include border-default();*/
+    font-size: 12px;
+    background-color: #FFF;
+    text-align: center;
+    width: 90px;
+    /*height: 30px;*/
+    height: 26px;
+    margin-top: 2px;
+    span {
+      flex-grow: 1;
+      text-align: center;
+    }
+    img {
+      height: 20px;
+      margin-left: 5px;
+    }
+  }
+  .rect_label {//ランクラベル
+    width: 90px;
+    /*height: 30px;*/
+    height: 26px;
+    padding: 0;
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .google {
+    width: 90px;
+    margin-left: auto;
+    img {
+      width: 100%;
+    }
+  }
+
+  .btn_box {
+      display: flex;
+      margin-top: 10px;
+      button {
+        flex: 1;
+        + button {
+        margin-left: 5px;
+        }
+      }
+  }
+  .close {//閉じるボタン
+    @include radius(0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FFF;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    padding: 0 !important;
+    font-size: 12px;
+  }   
+}
+}
